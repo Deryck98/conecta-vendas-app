@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Deryck Alec | Consultor de Vendas Yamaha</title>
+<meta name="description" content="Fale agora com Deryck Alec, Consultor de Vendas Yamaha. Cotação rápida, financiamento facilitado e atendimento personalizado.">
+<meta name="theme-color" content="#0A2A6B">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Deryck Alec | Consultor de Vendas Yamaha">
+<meta property="og:description" content="Especialista em ajudar você a encontrar a Yamaha ideal com atendimento rápido, transparente e personalizado.">
+<meta property="og:site_name" content="Deryck Alec - Yamaha">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+  :root{
+    --blue-deep:#071B3F;
+    --blue:#0B3C8C;
+    --blue-bright:#2F6FE0;
+    --ink:#080A10;
+    --white:#FFFFFF;
+    --paper:#F4F7FC;
+    --red:#E4002B;
+    --muted:#9FB0CC;
+    --line:rgba(255,255,255,0.10);
+    --glass:rgba(255,255,255,0.06);
+    --glass-strong:rgba(255,255,255,0.10);
+    --radius-lg:26px;
+    --radius-md:18px;
+    --radius-sm:12px;
+    --shadow-soft:0 20px 50px -20px rgba(4,10,30,0.65);
+    --ease:cubic-bezier(.22,.9,.32,1);
+  }
+
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100svh;
+    font-family:'Inter',sans-serif;
+    color:var(--white);
+    background:
+      radial-gradient(1100px 600px at 15% -10%, rgba(47,111,224,0.35), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(228,0,43,0.14), transparent 55%),
+      linear-gradient(180deg, var(--ink) 0%, var(--blue-deep) 55%, var(--ink) 100%);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:44px 18px 60px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* subtle racing stripe glow crossing the background */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:-20% -10%;
+    background:
+      linear-gradient(115deg, transparent 46%, rgba(47,111,224,0.10) 47%, rgba(47,111,224,0.10) 48.4%, transparent 49.4%),
+      linear-gradient(115deg, transparent 51%, rgba(228,0,43,0.10) 51.8%, transparent 52.6%);
+    pointer-events:none;
+    z-index:0;
+    animation: driftStripes 22s ease-in-out infinite alternate;
+  }
+  @keyframes driftStripes{
+    from{ transform:translateX(-2%) translateY(0); }
+    to{ transform:translateX(2%) translateY(1%); }
+  }
+
+  .card{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:420px;
+    background:var(--glass);
+    backdrop-filter:blur(22px) saturate(140%);
+    -webkit-backdrop-filter:blur(22px) saturate(140%);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-soft);
+    padding:34px 24px 26px;
+    opacity:0;
+    transform:translateY(16px);
+    animation:cardIn .7s var(--ease) forwards;
+  }
+  @keyframes cardIn{ to{ opacity:1; transform:translateY(0);} }
+
+  /* ---------- HEADER ---------- */
+  .header{ text-align:center; margin-bottom:22px; }
+
+  .avatar-wrap{
+    position:relative;
+    width:118px; height:118px;
+    margin:0 auto 18px;
+  }
+  .avatar-ring{
+    position:absolute; inset:0;
+    border-radius:50%;
+    background:conic-gradient(from 0deg, var(--blue-bright), var(--red) 28%, var(--blue-bright) 55%, var(--blue-deep) 80%, var(--blue-bright) 100%);
+    animation:spin 7s linear infinite;
+    filter:blur(0.2px);
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .avatar{
+    position:absolute; inset:5px;
+    border-radius:50%;
+    background:linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 100%);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+    border:3px solid var(--ink);
+  }
+  /* Substitua o conteúdo abaixo por: <img src="sua-foto.jpg" alt="Deryck Alec" style="width:100%;height:100%;object-fit:cover;"> */
+  .avatar span{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:34px; font-weight:700; letter-spacing:1px;
+    color:var(--white); opacity:.92;
+  }
+  .avatar-badge{
+    position:absolute; bottom:2px; right:2px;
+    width:30px; height:30px; border-radius:50%;
+    background:var(--red);
+    display:flex; align-items:center; justify-content:center;
+    border:3px solid var(--ink);
+    font-size:12px;
+  }
+
+  h1.name{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:26px; font-weight:700;
+    margin:0 0 8px;
+    letter-spacing:.2px;
+  }
+
+  .role-badge{
+    display:inline-flex; align-items:center; gap:7px;
+    background:linear-gradient(90deg, rgba(47,111,224,0.22), rgba(228,0,43,0.16));
+    border:1px solid rgba(255,255,255,0.14);
+    color:var(--white);
+    font-size:12.5px; font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  .role-badge i{ color:var(--red); font-size:11px; }
+
+  .bio{
+    font-size:14.5px; line-height:1.55;
+    color:var(--muted);
+    max-width:320px;
+    margin:0 auto;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .actions{
+    display:flex; flex-direction:column; gap:12px;
+    margin-top:26px;
+  }
+
+  .btn{
+    position:relative;
+    display:flex; align-items:center; gap:14px;
+    width:100%;
+    padding:14px 16px;
+    border-radius:var(--radius-md);
+    text-decoration:none;
+    color:var(--white);
+    border:1px solid var(--line);
+    background:var(--glass-strong);
+    overflow:hidden;
+    transform:translateY(10px);
+    opacity:0;
+    animation:itemIn .6s var(--ease) forwards;
+    transition:transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+  }
+  button.btn{ font-family:inherit; text-align:left; cursor:pointer; }
+  .btn:active{ transform:scale(.97); }
+  .btn:hover{ transform:translateY(-2px); border-color:rgba(255,255,255,0.28); }
+
+  @keyframes itemIn{ to{ opacity:1; transform:translateY(0);} }
+
+  .btn .icon{
+    flex:0 0 auto;
+    width:46px; height:46px;
+    border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:19px;
+  }
+
+  .btn .txt{ flex:1 1 auto; min-width:0; }
+  .btn .txt .t{ font-weight:600; font-size:15px; margin-bottom:2px; }
+  .btn .txt .d{ font-size:12.5px; color:var(--muted); }
+
+  .btn .chev{
+    flex:0 0 auto; color:var(--muted); font-size:13px;
+    transition:transform .25s var(--ease);
+  }
+  .btn:hover .chev{ transform:translateX(3px); }
+
+  .btn.primary{
+    background:linear-gradient(90deg, #128C4A, #17A85C);
+    border-color:rgba(255,255,255,0.16);
+    box-shadow:0 14px 30px -12px rgba(23,168,92,0.55);
+  }
+  .btn.primary .icon{ background:rgba(255,255,255,0.16); color:var(--white); }
+  .btn.primary .d{ color:rgba(255,255,255,0.85); }
+  .btn.primary .chev{ color:rgba(255,255,255,0.85); }
+
+  .btn.instagram .icon{ background:linear-gradient(135deg,#2F6FE0,#E4002B); color:var(--white); }
+  .btn.catalog .icon{ background:rgba(47,111,224,0.18); color:var(--blue-bright); }
+  .btn.location .icon{ background:rgba(228,0,43,0.16); color:#FF5C74; }
+  .btn.finance .icon{ background:rgba(255,255,255,0.10); color:var(--white); }
+
+  /* ---------- DIFERENCIAIS ---------- */
+  .divider{
+    display:flex; align-items:center; gap:10px;
+    margin:28px 0 16px;
+    opacity:0;
+    animation:itemIn .6s var(--ease) forwards;
+    animation-delay:.55s;
+  }
+  .divider .line{ flex:1; height:1px; background:var(--line); }
+  .divider span{ font-size:11.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--muted); font-weight:600; }
+
+  .perks{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  }
+  .perk{
+    display:flex; align-items:center; gap:8px;
+    background:var(--glass);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:11px 12px;
+    font-size:13px; font-weight:500;
+    opacity:0; transform:translateY(10px);
+    animation:itemIn .55s var(--ease) forwards;
+  }
+  .perk i{ color:#22C55E; font-size:13px; flex:0 0 auto; }
+
+  /* ---------- MODAL: SIMULAÇÃO DE FINANCIAMENTO ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:50;
+    background:rgba(4,8,20,0.72);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    padding:28px 16px;
+    overflow-y:auto;
+    opacity:0;
+    transition:opacity .25s var(--ease);
+  }
+  .modal-overlay.open{ display:flex; opacity:1; }
+
+  .modal{
+    width:100%; max-width:420px;
+    background:linear-gradient(180deg, rgba(15,23,48,0.96), rgba(7,11,24,0.98));
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-soft);
+    padding:26px 22px 22px;
+    transform:translateY(18px) scale(.98);
+    opacity:0;
+    transition:transform .3s var(--ease), opacity .3s var(--ease);
+  }
+  .modal-overlay.open .modal{ transform:translateY(0) scale(1); opacity:1; }
+
+  .modal-head{ display:flex; align-items:flex-start; gap:12px; margin-bottom:6px; }
+  .modal-head .icon{
+    flex:0 0 auto; width:44px; height:44px; border-radius:14px;
+    background:rgba(255,255,255,0.10);
+    display:flex; align-items:center; justify-content:center; font-size:18px;
+  }
+  .modal-head h2{ font-family:'Space Grotesk',sans-serif; font-size:17.5px; margin:2px 0 3px; }
+  .modal-head p{ font-size:12.5px; color:var(--muted); margin:0; line-height:1.45; }
+  .modal-close{
+    margin-left:auto; flex:0 0 auto;
+    width:32px; height:32px; border-radius:50%;
+    border:1px solid var(--line); background:var(--glass);
+    color:var(--white); font-size:13px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s var(--ease), transform .2s var(--ease);
+  }
+  .modal-close:hover{ background:rgba(255,255,255,0.14); transform:rotate(90deg); }
+
+  .modal-form{ margin-top:18px; display:flex; flex-direction:column; gap:14px; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:12.5px; font-weight:600; color:var(--muted); }
+  .field label .req{ color:var(--red); }
+
+  .field input, .field select{
+    width:100%;
+    background:rgba(255,255,255,0.06);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px 13px;
+    color:var(--white);
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    outline:none;
+    transition:border-color .2s var(--ease), background .2s var(--ease);
+  }
+  .field input::placeholder{ color:rgba(255,255,255,0.35); }
+  .field input:focus, .field select:focus{
+    border-color:var(--blue-bright);
+    background:rgba(255,255,255,0.09);
+  }
+  .field select{ appearance:none; -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239FB0CC' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:16px;
+    padding-right:36px;
+  }
+  .field select option{ background:#0B1224; color:var(--white); }
+
+  .field.invalid label{ color:#FF6B7A; }
+  .field.invalid input, .field.invalid select{
+    border-color:#E4002B;
+    background:rgba(228,0,43,0.08);
+    animation:shake .3s var(--ease);
+  }
+  @keyframes shake{
+    0%,100%{ transform:translateX(0); }
+    25%{ transform:translateX(-4px); }
+    75%{ transform:translateX(4px); }
+  }
+
+  .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+  .modal-submit{
+    margin-top:6px;
+    width:100%;
+    border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background:linear-gradient(90deg, #128C4A, #17A85C);
+    color:var(--white); font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
+    padding:14px 16px; border-radius:var(--radius-md);
+    box-shadow:0 14px 30px -12px rgba(23,168,92,0.55);
+    transition:transform .2s var(--ease), filter .2s var(--ease);
+  }
+  .modal-submit:hover{ filter:brightness(1.06); }
+  .modal-submit:active{ transform:scale(.97); }
+
+  .modal-note{ font-size:11.5px; color:var(--muted); text-align:center; margin-top:4px; line-height:1.5; }
+
+  .toast{
+    position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
+    background:#0F1A33; border:1px solid var(--line); color:var(--white);
+    padding:12px 18px; border-radius:14px; font-size:13px; font-weight:500;
+    box-shadow:var(--shadow-soft);
+    display:flex; align-items:center; gap:9px;
+    opacity:0; pointer-events:none; z-index:60;
+    transition:opacity .3s var(--ease), transform .3s var(--ease);
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .toast i{ color:#22C55E; }
+
+  @media (max-width:380px){
+    .row-2{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  .stripes{
+    display:flex; gap:5px; justify-content:center; margin:30px 0 16px;
+  }
+  .stripes i{ width:34px; height:4px; border-radius:3px; display:block; }
+  .stripes i:nth-child(1){ background:var(--blue-bright); }
+  .stripes i:nth-child(2){ background:var(--white); opacity:.85; }
+  .stripes i:nth-child(3){ background:var(--red); }
+
+  footer{ text-align:center; }
+  footer .fname{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; }
+  footer .frole{ font-size:12.5px; color:var(--muted); margin:2px 0 10px; }
+  footer .ftag{ font-size:12.5px; color:var(--muted); font-style:italic; max-width:280px; margin:0 auto; line-height:1.5; }
+
+  @media (max-width:380px){
+    .card{ padding:28px 18px 22px; }
+    h1.name{ font-size:23px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+    .avatar-ring{ animation:none; }
+    body::before{ animation:none; }
+  }
+
+  :focus-visible{ outline:2px solid var(--blue-bright); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<main class="card">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">
+        <!-- Para inserir a foto de perfil, troque o <span> abaixo por:
+             <img src="sua-foto.jpg" alt="Deryck Alec" style="width:100%;height:100%;object-fit:cover;"> -->
+        <span>DA</span>
+      </div>
+      <div class="avatar-badge" title="Foto em breve"><i class="fa-solid fa-camera" style="color:#fff;"></i></div>
+    </div>
+
+    <h1 class="name">Deryck Alec</h1>
+    <div class="role-badge"><i class="fa-solid fa-motorcycle"></i> Consultor de Vendas Yamaha</div>
+    <p class="bio">Especialista em ajudar você a encontrar a Yamaha ideal com atendimento rápido, transparente e personalizado.</p>
+  </div>
+
+  <!-- BOTÕES -->
+  <nav class="actions">
+
+    <a class="btn primary" style="animation-delay:.08s"
+       href="https://wa.me/5592991623048?text=Ol%C3%A1%2C%20Deryck!%20Gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener">
+      <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
+      <span class="txt">
+        <div class="t">WhatsApp</div>
+        <div class="d">Solicite sua cotação agora</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </a>
+
+    <a class="btn instagram" style="animation-delay:.16s"
+       href="https://www.instagram.com/deryck.yamaha?igsh=MW1zcjd2c2hyb2x4Nw==" target="_blank" rel="noopener">
+      <span class="icon"><i class="fa-brands fa-instagram"></i></span>
+      <span class="txt">
+        <div class="t">Instagram</div>
+        <div class="d">Veja entregas, novidades e motos disponíveis</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </a>
+
+    <a class="btn catalog" style="animation-delay:.24s" href="https://wa.me/c/559291623048" target="_blank" rel="noopener">
+      <span class="icon"><i class="fa-solid fa-motorcycle"></i></span>
+      <span class="txt">
+        <div class="t">Catálogo Yamaha</div>
+        <div class="d">Conheça todos os modelos</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </a>
+
+    <!-- Embed do Google Maps a ser inserido futuramente -->
+    <a class="btn location" style="animation-delay:.32s" href="#" rel="noopener">
+      <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+      <span class="txt">
+        <div class="t">Localização</div>
+        <div class="d">Venha conhecer nossa loja</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </a>
+
+    <button type="button" class="btn finance" style="animation-delay:.40s" onclick="openFinanceModal()">
+      <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+      <span class="txt">
+        <div class="t">Simulação de Financiamento</div>
+        <div class="d">Descubra as melhores condições</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </button>
+
+  </nav>
+
+  <!-- DIFERENCIAIS -->
+  <div class="divider"><div class="line"></div><span>Diferenciais</span><div class="line"></div></div>
+  <div class="perks">
+    <div class="perk" style="animation-delay:.60s"><i class="fa-solid fa-circle-check"></i>Atendimento rápido</div>
+    <div class="perk" style="animation-delay:.65s"><i class="fa-solid fa-circle-check"></i>Aprovação facilitada</div>
+    <div class="perk" style="animation-delay:.70s"><i class="fa-solid fa-circle-check"></i>Parcelamento</div>
+    <div class="perk" style="animation-delay:.75s"><i class="fa-solid fa-circle-check"></i>Atendimento personalizado</div>
+    <div class="perk" style="animation-delay:.80s"><i class="fa-solid fa-circle-check"></i>Motos 0km</div>
+    <div class="perk" style="animation-delay:.85s"><i class="fa-solid fa-circle-check"></i>Confiança Yamaha</div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="stripes"><i></i><i></i><i></i></div>
+  <footer>
+    <div class="fname">Deryck Alec</div>
+    <div class="frole">Consultor de Vendas Yamaha</div>
+    <div class="ftag">"Será um prazer ajudar você a conquistar sua próxima Yamaha."</div>
+  </footer>
+
+</main>
+
+<!-- MODAL: SIMULAÇÃO DE FINANCIAMENTO -->
+<div class="modal-overlay" id="financeOverlay" role="dialog" aria-modal="true" aria-labelledby="financeTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+      <div>
+        <h2 id="financeTitle">Simulação de Financiamento</h2>
+        <p>Preencha os dados abaixo e envie sua solicitação pelo WhatsApp.</p>
+      </div>
+      <button type="button" class="modal-close" aria-label="Fechar" onclick="closeFinanceModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form class="modal-form" id="financeForm">
+
+      <div class="field">
+        <label for="f-modelo">Modelo da moto <span class="req">*</span></label>
+        <select id="f-modelo">
+          <option value="" disabled selected>Selecione o modelo</option>
+          <option>Neos Connected</option>
+          <option>Fluo ABS Connected</option>
+          <option>Nmax 160 ABS</option>
+          <option>Xmax 300 Connected</option>
+          <option>Fazer FZ15 ABS</option>
+          <option>Nova Factor</option>
+          <option>Nova Factor DX</option>
+          <option>Fazer FZ25 ABS</option>
+          <option>Crosser 150 S</option>
+          <option>Crosser 150 Z</option>
+          <option>Lander 250 ABS</option>
+          <option>R3 Connected</option>
+          <option>R15 ABS</option>
+          <option>MT-03 ABS</option>
+          <option>MT-07 ABS</option>
+          <option>TT-R 230</option>
+          <option>TÉNÉRÉ 700</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-nome">Nome completo <span class="req">*</span></label>
+        <input type="text" id="f-nome" placeholder="Digite seu nome completo" autocomplete="name">
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="f-nasc">Data de nascimento <span class="req">*</span></label>
+          <input type="date" id="f-nasc">
+        </div>
+        <div class="field">
+          <label for="f-cpf">CPF <span class="req">*</span></label>
+          <input type="text" id="f-cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-profissao">Profissão <span class="req">*</span></label>
+        <input type="text" id="f-profissao" placeholder="Sua profissão">
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="f-entrada">Valor de entrada <span class="req">*</span></label>
+          <input type="text" id="f-entrada" placeholder="R$ 0,00" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="f-prazo">Prazo <span class="req">*</span></label>
+          <select id="f-prazo">
+            <option value="" disabled selected>Selecione</option>
+            <option>6 meses</option>
+            <option>12 meses</option>
+            <option>18 meses</option>
+            <option>24 meses</option>
+            <option>30 meses</option>
+            <option>36 meses</option>
+            <option>42 meses</option>
+            <option>48 meses</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Endereço de e-mail <span class="req">*</span></label>
+        <input type="email" id="f-email" placeholder="seuemail@exemplo.com" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="f-renda">Renda mensal <span class="req">*</span></label>
+        <input type="text" id="f-renda" placeholder="R$ 0,00" inputmode="numeric">
+      </div>
+
+      <button type="button" id="financeSubmitBtn" class="modal-submit">
+        <i class="fa-brands fa-whatsapp"></i> Enviar simulação pelo WhatsApp
+      </button>
+      <p class="modal-note">Ao clicar, o WhatsApp abrirá com seus dados já preenchidos na mensagem.</p>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastMsg">Copiado!</span></div>
+
+<script>
+  // Pequeno efeito de "ripple" sutil ao tocar nos botões
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('pointerdown', function(e){
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var rect = btn.getBoundingClientRect();
+      var ripple = document.createElement('span');
+      var size = Math.max(rect.width, rect.height) * 1.4;
+      ripple.style.position='absolute';
+      ripple.style.left=(e.clientX-rect.left-size/2)+'px';
+      ripple.style.top=(e.clientY-rect.top-size/2)+'px';
+      ripple.style.width=ripple.style.height=size+'px';
+      ripple.style.borderRadius='50%';
+      ripple.style.background='rgba(255,255,255,0.18)';
+      ripple.style.pointerEvents='none';
+      ripple.style.transform='scale(0)';
+      ripple.style.transition='transform .5s ease-out, opacity .6s ease-out';
+      btn.appendChild(ripple);
+      requestAnimationFrame(function(){ ripple.style.transform='scale(1)'; ripple.style.opacity='0'; });
+      setTimeout(function(){ ripple.remove(); }, 600);
+    });
+  });
+
+  // ---------- MODAL: SIMULAÇÃO DE FINANCIAMENTO ----------
+  var financeOverlay = document.getElementById('financeOverlay');
+  var financeForm = document.getElementById('financeForm');
+  var lastFocused = null;
+
+  function openFinanceModal(){
+    lastFocused = document.activeElement;
+    financeOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var firstField = document.getElementById('f-modelo');
+    if (firstField) firstField.focus();
+  }
+  function closeFinanceModal(){
+    financeOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+  financeOverlay.addEventListener('click', function(e){
+    if (e.target === financeOverlay) closeFinanceModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && financeOverlay.classList.contains('open')) closeFinanceModal();
+  });
+
+  // Máscara de CPF
+  document.getElementById('f-cpf').addEventListener('input', function(e){
+    var v = e.target.value.replace(/\D/g,'').slice(0,11);
+    v = v.replace(/(\d{3})(\d)/,'$1.$2');
+    v = v.replace(/(\d{3})(\d)/,'$1.$2');
+    v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+    e.target.value = v;
+  });
+
+  // Máscara de valores em Reais (entrada e renda)
+  function maskCurrency(e){
+    var v = e.target.value.replace(/\D/g,'');
+    if (!v){ e.target.value = ''; return; }
+    v = (parseInt(v,10)/100).toFixed(2) + '';
+    var parts = v.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    e.target.value = 'R$ ' + parts[0] + ',' + parts[1];
+  }
+  document.getElementById('f-entrada').addEventListener('input', maskCurrency);
+  document.getElementById('f-renda').addEventListener('input', maskCurrency);
+
+  function showToast(msg){
+    var toast = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+  }
+
+  function formatDateBR(iso){
+    if(!iso) return '';
+    var p = iso.split('-');
+    return p.length===3 ? (p[2]+'/'+p[1]+'/'+p[0]) : iso;
+  }
+
+  var financeSubmitBtn = document.getElementById('financeSubmitBtn');
+
+  function setFieldValidity(inputId, isValid){
+    var el = document.getElementById(inputId);
+    var wrapper = el.closest('.field');
+    if (!wrapper) return;
+    if (isValid) wrapper.classList.remove('invalid');
+    else wrapper.classList.add('invalid');
+  }
+
+  function validarFormulario(){
+    var camposObrigatorios = ['f-modelo','f-nome','f-nasc','f-cpf','f-profissao','f-entrada','f-prazo','f-email','f-renda'];
+    var primeiroInvalido = null;
+
+    camposObrigatorios.forEach(function(id){
+      var el = document.getElementById(id);
+      var vazio = !el.value || !el.value.trim();
+      setFieldValidity(id, !vazio);
+      if (vazio && !primeiroInvalido) primeiroInvalido = el;
+    });
+
+    // valida formato de e-mail simples
+    var emailEl = document.getElementById('f-email');
+    var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim());
+    if (emailEl.value.trim() && !emailValido){
+      setFieldValidity('f-email', false);
+      if (!primeiroInvalido) primeiroInvalido = emailEl;
+    }
+
+    if (primeiroInvalido){
+      primeiroInvalido.focus();
+      primeiroInvalido.scrollIntoView({behavior:'smooth', block:'center'});
+      showToast('Preencha todos os campos obrigatórios.');
+      return false;
+    }
+    return true;
+  }
+
+  financeSubmitBtn.addEventListener('click', function(){
+    if (!validarFormulario()) return;
+
+    var dados = {
+      modelo: document.getElementById('f-modelo').value,
+      nome: document.getElementById('f-nome').value.trim(),
+      nascimento: formatDateBR(document.getElementById('f-nasc').value),
+      cpf: document.getElementById('f-cpf').value.trim(),
+      profissao: document.getElementById('f-profissao').value.trim(),
+      entrada: document.getElementById('f-entrada').value.trim(),
+      prazo: document.getElementById('f-prazo').value,
+      email: document.getElementById('f-email').value.trim(),
+      renda: document.getElementById('f-renda').value.trim()
+    };
+
+    var mensagemTexto =
+      'Olá, Deryck! Quero simular um financiamento Yamaha:\n\n' +
+      '🏍️ Modelo: ' + dados.modelo + '\n' +
+      '👤 Nome completo: ' + dados.nome + '\n' +
+      '🎂 Data de nascimento: ' + dados.nascimento + '\n' +
+      '🪪 CPF: ' + dados.cpf + '\n' +
+      '💼 Profissão: ' + dados.profissao + '\n' +
+      '💰 Valor de entrada: ' + dados.entrada + '\n' +
+      '📅 Prazo: ' + dados.prazo + '\n' +
+      '✉️ E-mail: ' + dados.email + '\n' +
+      '💵 Renda mensal: ' + dados.renda;
+
+    var whatsappUrl = 'https://wa.me/5592991623048?text=' + encodeURIComponent(mensagemTexto);
+
+    // Abre o WhatsApp IMEDIATAMENTE no clique, antes de qualquer outra coisa,
+    // para o navegador nunca bloquear o pop-up
+    var novaJanela = window.open(whatsappUrl, '_blank', 'noopener');
+    if (!novaJanela) {
+      window.location.href = whatsappUrl;
+    }
+
+    // Também copia o resumo para a área de transferência como reforço,
+    // caso o app do WhatsApp não abra com o texto pré-preenchido em algum dispositivo
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(mensagemTexto).catch(function(){});
+    }
+
+    showToast('Abrindo o WhatsApp com seus dados...');
+
+    setTimeout(function(){
+      closeFinanceModal();
+      financeForm.reset();
+      document.querySelectorAll('.field.invalid').forEach(function(f){ f.classList.remove('invalid'); });
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
