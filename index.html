@@ -549,14 +549,14 @@
         <div class="bike-price">R$ 20.990</div>
       </div>
 
-   <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Neos Connected')" style="width: 100%; cursor: pointer; border: none; text-align: left; background: none; padding: 0;">
+  <a class="btn primary" href="javascript:void(0)" onclick="abrirSimulacaoMoto('Neos Connected')">
   <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
   <span class="txt">
     <div class="t">Tenho interesse</div>
     <div class="d">Falar sobre a NEO's no WhatsApp</div>
   </span>
   <i class="fa-solid fa-chevron-right chev"></i>
-</button>   
+</a>  
 
   </div>
 
@@ -853,7 +853,14 @@
       financeForm.reset();
       document.querySelectorAll('.field.invalid').forEach(function(f){ f.classList.remove('invalid'); });
     }, 500);
-  });
+  }});
+function abrirSimulacaoMoto(nomeMoto) {
+  var campoModelo = document.getElementById('f-modelo');
+  if (campoModelo) {
+    campoModelo.value = nomeMoto;
+  }
+  openFinanceModal();
+}
 </script>
 
 </body>
