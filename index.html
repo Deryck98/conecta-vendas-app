@@ -238,6 +238,7 @@
     object-fit:cover;
     border-radius:var(--radius-sm);
     border:1px solid rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.02);
   }
   .bike-thumbs{
     display:flex;
@@ -462,7 +463,7 @@
     <p class="bio">Especialista em ajudar você a encontrar a Yamaha ideal com atendimento rápido, transparente e personalizado.</p>
   </div>
 
-  <!-- BOTÕES -->
+  <!-- BOTÕES DE AÇÃO -->
   <nav class="actions">
 
     <a class="btn primary" style="animation-delay:.08s"
@@ -514,22 +515,22 @@
 
   </nav>
 
-  <!-- CATÁLOGO PRÓPRIO DE MOTOS -->
+  <!-- CATÁLOGO DE MOTOS -->
   <div class="divider" id="catalogo"><div class="line"></div><span>Catálogo de Motos</span><div class="line"></div></div>
 
   <div class="catalog-section">
     
     <!-- CARD MOTO 1: NEO'S CONNECTED -->
     <div class="bike-card">
-      <img src="Neos.png" alt="Yamaha NEO'S" class="bike-img-main" id="neos-main-img">
+      <img src="Neos.png" alt="Yamaha NEO'S" class="bike-img-main">
       
-      <!-- Miniaturas para trocar a foto ao clicar -->
+      <!-- 5 Miniaturas NEO'S -->
       <div class="bike-thumbs">
-        <img src="Neos.png" alt="NEO'S Vista Geral" class="active" onclick="changeMainImage('Neos.png', this)">
-        <img src="Neosfarois.png" alt="Faróis" onclick="changeMainImage('Neosfarois.png', this)">
-        <img src="Neospainel.png" alt="Painel" onclick="changeMainImage('Neospainel.png', this)">
-        <img src="Neossmartjey.png" alt="Smart Key" onclick="changeMainImage('Neossmartjey.png', this)">
-        <img src="Neostraseira.png" alt="Traseira" onclick="changeMainImage('Neostraseira.png', this)">
+        <img src="Neos.png" alt="NEO'S Vista Geral" class="active" onclick="changeMainImage(this)">
+        <img src="Neosfarois.png" alt="Faróis" onclick="changeMainImage(this)">
+        <img src="Neospainel.png" alt="Painel" onclick="changeMainImage(this)">
+        <img src="Neossmartjey.png" alt="Smart Key" onclick="changeMainImage(this)">
+        <img src="Neostraseira.png" alt="Traseira" onclick="changeMainImage(this)">
       </div>
 
       <div class="bike-info">
@@ -551,11 +552,294 @@
 
     <!-- CARD MOTO 2: FLUO ABS CONNECTED -->
     <div class="bike-card">
-      <img src="Fluo.png" alt="Yamaha Fluo ABS" class="bike-img-main" id="fluo-main-img">
+      <img src="Fluo.png" alt="Yamaha Fluo ABS" class="bike-img-main">
       
-      <!-- Miniaturas -->
+      <!-- 5 Miniaturas FLUO -->
       <div class="bike-thumbs">
-        <img src="Fluo.png" alt="Fluo Vista Geral" class="active" onclick="changeMainImage('Fluo.png', this)">
-        <img src="Floufrente.png" alt="Frente Fluo" onclick="changeMainImage('Floufrente.png', this)">
-        <img src="Fluopainel.png" alt="Painel Fluo" onclick="changeMainImage('Fluopainel.png', this)">
-        <img src="Fluoretado.png" alt="Detalhe Fluo" onclick="changeMainImage('Fluoretado.png',
+        <img src="Fluo.png" alt="Fluo Vista Geral" class="active" onclick="changeMainImage(this)">
+        <img src="Floufrente.png" alt="Frente Fluo" onclick="changeMainImage(this)">
+        <img src="Fluopainel.png" alt="Painel Fluo" onclick="changeMainImage(this)">
+        <img src="Fluoretado.png" alt="Detalhe Fluo" onclick="changeMainImage(this)">
+        <img src="Fluotraseira.png" alt="Traseira Fluo" onclick="changeMainImage(this)">
+      </div>
+
+      <div class="bike-info">
+        <h3>Fluo ABS Connected</h3>
+        <p>A scooter prática e moderna para o dia a dia. Freio ABS, Sistema Stop & Start, Chave Smart Key, farol em LED e conectividade Bluetooth com Y-Connect.</p>
+        <div class="bike-price">R$ 17.790</div>
+      </div>
+
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Fluo ABS Connected')">
+        <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
+        <span class="txt">
+          <div class="t">Tenho interesse</div>
+          <div class="d">Simular este modelo agora</div>
+        </span>
+        <i class="fa-solid fa-chevron-right chev"></i>
+      </button>  
+
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS -->
+  <div class="divider"><div class="line"></div><span>Diferenciais</span><div class="line"></div></div>
+  <div class="perks">
+    <div class="perk" style="animation-delay:.60s"><i class="fa-solid fa-circle-check"></i>Atendimento rápido</div>
+    <div class="perk" style="animation-delay:.65s"><i class="fa-solid fa-circle-check"></i>Aprovação facilitada</div>
+    <div class="perk" style="animation-delay:.70s"><i class="fa-solid fa-circle-check"></i>Parcelamento</div>
+    <div class="perk" style="animation-delay:.75s"><i class="fa-solid fa-circle-check"></i>Atendimento personalizado</div>
+    <div class="perk" style="animation-delay:.80s"><i class="fa-solid fa-circle-check"></i>Motos 0km</div>
+    <div class="perk" style="animation-delay:.85s"><i class="fa-solid fa-circle-check"></i>Confiança Yamaha</div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="stripes"><i></i><i></i><i></i></div>
+  <footer>
+    <div class="fname">Deryck Alec</div>
+    <div class="frole">Consultor de Vendas Yamaha</div>
+    <div class="ftag">"Será um prazer ajudar você a conquistar sua próxima Yamaha."</div>
+  </footer>
+
+</main>
+
+<!-- MODAL: SIMULAÇÃO DE FINANCIAMENTO -->
+<div class="modal-overlay" id="financeOverlay" role="dialog" aria-modal="true" aria-labelledby="financeTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+      <div>
+        <h2 id="financeTitle">Simulação de Financiamento</h2>
+        <p>Preencha os dados abaixo e envie sua solicitação pelo WhatsApp.</p>
+      </div>
+      <button type="button" class="modal-close" aria-label="Fechar" onclick="closeFinanceModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form class="modal-form" id="financeForm">
+
+      <div class="field">
+        <label for="f-modelo">Modelo da moto <span class="req">*</span></label>
+        <select id="f-modelo">
+          <option value="" disabled selected>Selecione o modelo</option>
+          <option value="Neos Connected">Neos Connected</option>
+          <option value="Fluo ABS Connected">Fluo ABS Connected</option>
+          <option value="Nmax 160 ABS">Nmax 160 ABS</option>
+          <option value="Xmax 300 Connected">Xmax 300 Connected</option>
+          <option value="Fazer FZ15 ABS">Fazer FZ15 ABS</option>
+          <option value="Nova Factor">Nova Factor</option>
+          <option value="Nova Factor DX">Nova Factor DX</option>
+          <option value="Fazer FZ25 ABS">Fazer FZ25 ABS</option>
+          <option value="Crosser 150 S">Crosser 150 S</option>
+          <option value="Crosser 150 Z">Crosser 150 Z</option>
+          <option value="Lander 250 ABS">Lander 250 ABS</option>
+          <option value="R3 Connected">R3 Connected</option>
+          <option value="R15 ABS">R15 ABS</option>
+          <option value="MT-03 ABS">MT-03 ABS</option>
+          <option value="MT-07 ABS">MT-07 ABS</option>
+          <option value="TT-R 230">TT-R 230</option>
+          <option value="TÉNÉRÉ 700">TÉNÉRÉ 700</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-nome">Nome completo <span class="req">*</span></label>
+        <input type="text" id="f-nome" placeholder="Digite seu nome completo" autocomplete="name">
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="f-nasc">Data de nascimento <span class="req">*</span></label>
+          <input type="date" id="f-nasc">
+        </div>
+        <div class="field">
+          <label for="f-cpf">CPF <span class="req">*</span></label>
+          <input type="text" id="f-cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-profissao">Profissão <span class="req">*</span></label>
+        <input type="text" id="f-profissao" placeholder="Sua profissão">
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="f-entrada">Valor de entrada <span class="req">*</span></label>
+          <input type="text" id="f-entrada" placeholder="R$ 0,00" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="f-prazo">Prazo <span class="req">*</span></label>
+          <select id="f-prazo">
+            <option value="" disabled selected>Selecione</option>
+            <option>6 meses</option>
+            <option>12 meses</option>
+            <option>18 meses</option>
+            <option>24 meses</option>
+            <option>30 meses</option>
+            <option>36 meses</option>
+            <option>42 meses</option>
+            <option>48 meses</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Endereço de e-mail <span class="req">*</span></label>
+        <input type="email" id="f-email" placeholder="seuemail@exemplo.com" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="f-renda">Renda mensal <span class="req">*</span></label>
+        <input type="text" id="f-renda" placeholder="R$ 0,00" inputmode="numeric">
+      </div>
+
+      <button type="button" id="financeSubmitBtn" class="modal-submit">
+        <i class="fa-brands fa-whatsapp"></i> Enviar simulação pelo WhatsApp
+      </button>
+      <p class="modal-note">Ao clicar, o WhatsApp abrirá com seus dados já preenchidos na mensagem.</p>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastMsg">Notificação</span></div>
+
+<script>
+  // Função unificada para troca de imagens de cada card
+  function changeMainImage(clickedElement) {
+    var card = clickedElement.closest('.bike-card');
+    if (!card) return;
+    
+    var mainImg = card.querySelector('.bike-img-main');
+    if (mainImg) {
+      mainImg.src = clickedElement.src;
+    }
+    
+    var thumbs = card.querySelectorAll('.bike-thumbs img');
+    thumbs.forEach(function(img) {
+      img.classList.remove('active');
+    });
+    clickedElement.classList.add('active');
+  }
+
+  // Controle do Modal
+  var financeOverlay = document.getElementById('financeOverlay');
+  var financeForm = document.getElementById('financeForm');
+
+  function openFinanceModal(){
+    if(financeOverlay){
+      financeOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeFinanceModal(){
+    if(financeOverlay){
+      financeOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function abrirSimulacaoMoto(nomeMoto) {
+    var campoModelo = document.getElementById('f-modelo');
+    if (campoModelo) {
+      campoModelo.value = nomeMoto;
+    }
+    openFinanceModal();
+  }
+
+  if (financeOverlay) {
+    financeOverlay.addEventListener('click', function(e){
+      if (e.target === financeOverlay) closeFinanceModal();
+    });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && financeOverlay && financeOverlay.classList.contains('open')) closeFinanceModal();
+  });
+
+  // Máscara CPF
+  var cpfInput = document.getElementById('f-cpf');
+  if (cpfInput) {
+    cpfInput.addEventListener('input', function(e){
+      var v = e.target.value.replace(/\D/g,'').slice(0,11);
+      v = v.replace(/(\d{3})(\d)/,'$1.$2');
+      v = v.replace(/(\d{3})(\d)/,'$1.$2');
+      v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+      e.target.value = v;
+    });
+  }
+
+  // Máscara Moeda
+  function maskCurrency(e){
+    var v = e.target.value.replace(/\D/g,'');
+    if (!v){ e.target.value = ''; return; }
+    v = (parseInt(v,10)/100).toFixed(2) + '';
+    var parts = v.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    e.target.value = 'R$ ' + parts[0] + ',' + parts[1];
+  }
+
+  var entradaInput = document.getElementById('f-entrada');
+  var rendaInput = document.getElementById('f-renda');
+  if (entradaInput) entradaInput.addEventListener('input', maskCurrency);
+  if (rendaInput) rendaInput.addEventListener('input', maskCurrency);
+
+  function showToast(msg){
+    var toast = document.getElementById('toast');
+    var toastMsg = document.getElementById('toastMsg');
+    if (toast && toastMsg) {
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+    }
+  }
+
+  function formatDateBR(iso){
+    if(!iso) return '';
+    var p = iso.split('-');
+    return p.length === 3 ? (p[2] + '/' + p[1] + '/' + p[0]) : iso;
+  }
+
+  // Envio do formulário
+  var financeSubmitBtn = document.getElementById('financeSubmitBtn');
+  if (financeSubmitBtn) {
+    financeSubmitBtn.addEventListener('click', function(){
+      var modelo = document.getElementById('f-modelo').value;
+      var nome = document.getElementById('f-nome').value.trim();
+      var nascimento = formatDateBR(document.getElementById('f-nasc').value);
+      var cpf = document.getElementById('f-cpf').value.trim();
+      var profissao = document.getElementById('f-profissao').value.trim();
+      var entrada = document.getElementById('f-entrada').value.trim();
+      var prazo = document.getElementById('f-prazo').value;
+      var email = document.getElementById('f-email').value.trim();
+      var renda = document.getElementById('f-renda').value.trim();
+
+      if (!modelo || !nome || !nascimento || !cpf || !profissao || !entrada || !prazo || !email || !renda) {
+        showToast('Por favor, preencha todos os campos!');
+        return;
+      }
+
+      var mensagemTexto =
+        'Olá, Deryck! Quero simular um financiamento Yamaha:\n\n' +
+        '🏍️ Modelo: ' + modelo + '\n' +
+        '👤 Nome completo: ' + nome + '\n' +
+        '🎂 Data de nascimento: ' + nascimento + '\n' +
+        '🪪 CPF: ' + cpf + '\n' +
+        '💼 Profissão: ' + profissao + '\n' +
+        '💰 Valor de entrada: ' + entrada + '\n' +
+        '📅 Prazo: ' + prazo + '\n' +
+        '✉️ E-mail: ' + email + '\n' +
+        '💵 Renda mensal: ' + renda;
+
+      var whatsappUrl = 'https://wa.me/5592991623048?text=' + encodeURIComponent(mensagemTexto);
+      window.open(whatsappUrl, '_blank');
+
+      closeFinanceModal();
+      financeForm.reset();
+    });
+  }
+</script>
+
+</body>
+</html>
