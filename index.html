@@ -554,8 +554,8 @@
       
       <!-- Miniaturas -->
       <div class="bike-thumbs">
-        <img src="Fluo.png" alt="Fluo Vista Geral" class="active" onclick="changeMainImage('Fluo.png', this)">
-        <img src="Fluofrente.png" alt="Frente Fluo" onclick="changeMainImage('Fluofrente.png', this)">
+       <img src="Fluo.png" alt="Fluo Vista Geral" class="active" onclick="changeMainImage('Fluo.png', this)">
+        <img src="Floufrente.png" alt="Frente Fluo" onclick="changeMainImage('Floufrente.png', this)">
         <img src="Fluopainel.png" alt="Painel Fluo" onclick="changeMainImage('Fluopainel.png', this)">
         <img src="Fluoretado.png" alt="Detalhe Fluo" onclick="changeMainImage('Fluoretado.png', this)">
         <img src="Fluotraseira.png" alt="Traseira Fluo" onclick="changeMainImage('Fluotraseira.png', this)">
@@ -827,6 +827,15 @@
       closeFinanceModal();
       financeForm.reset();
     });
+  }
+  function changeMainImage(src, element) {
+    var card = element.closest('.bike-card');
+    var mainImg = card ? card.querySelector('.bike-img-main') : null;
+    if (mainImg) mainImg.src = src;
+    
+    var thumbs = element.parentElement.querySelectorAll('img');
+    thumbs.forEach(function(img) { img.classList.remove('active'); });
+    element.classList.add('active');
   }
 </script>
 
