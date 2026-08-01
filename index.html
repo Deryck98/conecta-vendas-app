@@ -984,7 +984,7 @@
         </div>
         <div class="field" id="f-renda">
           <label>Renda Mensal <span class="req">*</span></label>
-          <input type="text" id="simRenda" placeholder="Ex: R$ 3.000,00" required>
+          <input type="text" id="simRenda" inputmode="numeric" placeholder="R$ 0,00" required oninput="maskCurrency(this)">
         </div>
       </div>
 
@@ -1023,7 +1023,7 @@
 
       <div class="field">
         <label>Possui entrada? (Opcional)</label>
-        <input type="text" id="simEntrada" placeholder="Ex: R$ 3.000 ou Minha moto usada">
+        <input type="text" id="simEntrada" inputmode="numeric" placeholder="R$ 0,00" oninput="maskCurrency(this)">
       </div>
 
       <button type="submit" class="modal-submit">
@@ -1092,6 +1092,17 @@
     v = v.replace(/(\d{2})(\d)/, "$1/$2");
     v = v.replace(/(\d{2})(\d)/, "$1/$2");
     i.value = v;
+  }
+
+  function maskCurrency(i) {
+    let v = i.value.replace(/\D/g, "");
+    if (!v) { i.value = ""; return; }
+    v = v.replace(/^0+(?=\d)/, "");
+    while (v.length < 3) v = "0" + v;
+    let cents = v.slice(-2);
+    let reais = v.slice(0, -2);
+    reais = reais.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    i.value = "R$ " + reais + "," + cents;
   }
 
   function submitFinance(e) {
