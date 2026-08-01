@@ -495,6 +495,7 @@
       <i class="fa-solid fa-chevron-right chev"></i>
     </a>
 
+    <!-- APENAS ESTA LINHA ABAIXO FOI ALTERADA (Com seu link correto do Google Maps) -->
     <a class="btn location" style="animation-delay:.32s" href="https://maps.app.goo.gl/Lp5gsjXavnLDMr9h9" target="_blank" rel="noopener">
       <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
       <span class="txt">
@@ -844,6 +845,70 @@
 
 </main>
 
+<!-- MODAL SIMULAÇÃO ORIGINAL -->
+<div class="modal-overlay" id="financeModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="icon"><i class="fa-solid fa-calculator" style="color:var(--blue-bright);"></i></div>
+      <div>
+        <h2>Simulação Rápida</h2>
+        <p>Preencha os dados abaixo para receber um cálculo personalizado no WhatsApp.</p>
+      </div>
+      <button type="button" class="modal-close" onclick="closeFinanceModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <form class="modal-form" id="simForm" onsubmit="submitFinance(event)">
+      <div class="field" id="f-nome">
+        <label>Nome Completo <span class="req">*</span></label>
+        <input type="text" id="simNome" placeholder="Ex: João Silva" required>
+      </div>
+
+      <div class="row-2">
+        <div class="field" id="f-cpf">
+          <label>CPF <span class="req">*</span></label>
+          <input type="text" id="simCpf" placeholder="000.000.000-00" required maxlength="14" oninput="maskCPF(this)">
+        </div>
+        <div class="field" id="f-nasc">
+          <label>Data Nasc. <span class="req">*</span></label>
+          <input type="text" id="simNasc" placeholder="DD/MM/AAAA" required maxlength="10" oninput="maskDate(this)">
+        </div>
+      </div>
+
+      <div class="field" id="f-moto">
+        <label>Modelo de Interesse <span class="req">*</span></label>
+        <select id="simMoto" required>
+          <option value="">Selecione uma moto...</option>
+          <option value="NEO'S Connected (Elétrica)">NEO'S Connected (Elétrica)</option>
+          <option value="Fluo ABS Connected">Fluo ABS Connected</option>
+          <option value="NMAX 160 ABS Connected">NMAX 160 ABS Connected</option>
+          <option value="XMAX ABS Connected">XMAX ABS Connected</option>
+          <option value="Fazer FZ15 ABS Connected">Fazer FZ15 ABS Connected</option>
+          <option value="Nova Factor">Nova Factor</option>
+          <option value="Factor DX">Factor DX</option>
+          <option value="Fazer FZ25 ABS Connected">Fazer FZ25 ABS Connected</option>
+          <option value="Crosser S ABS Connected">Crosser S ABS Connected</option>
+          <option value="Crosser Z ABS Connected">Crosser Z ABS Connected</option>
+          <option value="Lander 250 ABS Connected">Lander 250 ABS Connected</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Possui entrada? (Opcional)</label>
+        <input type="text" id="simEntrada" placeholder="Ex: R$ 3.000 ou Minha moto usada">
+      </div>
+
+      <button type="submit" class="modal-submit">
+        <i class="fa-brands fa-whatsapp" style="font-size:18px;"></i>
+        Enviar Dados via WhatsApp
+      </button>
+
+      <div class="modal-note">Seus dados serão enviados diretamente para atendimento humano com Deryck Alec.</div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i> Redirecionando para o WhatsApp...</div>
+
 <script>
   function changeMainImage(thumbElement) {
     const card = thumbElement.closest('.bike-card');
@@ -856,12 +921,83 @@
   }
 
   function abrirSimulacaoMoto(modelo) {
-    const msg = `Olá, Deryck! Tenho interesse na *${modelo}* e gostaria de fazer uma simulação.`;
-    window.open(`https://wa.me/5592991623048?text=${encodeURIComponent(msg)}`, '_blank');
+    document.getElementById('simMoto').value = modelo;
+    openFinanceModal();
   }
 
   function openFinanceModal() {
-    alert("Para simulação completa, entre em contato diretamente pelo WhatsApp!");
+    const modal = document.getElementById('financeModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFinanceModal() {
+    const modal = document.getElementById('financeModal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('financeModal').addEventListener('click', function(e) {
+    if (e.target === this) closeFinanceModal();
+  });
+
+  function maskCPF(i) {
+    let v = i.value.replace(/\D/g, "");
+    if (v.length > 11) v = v.slice(0, 11);
+    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+    v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    i.value = v;
+  }
+
+  function maskDate(i) {
+    let v = i.value.replace(/\D/g, "");
+    if (v.length > 8) v = v.slice(0, 8);
+    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+    i.value = v;
+  }
+
+  function submitFinance(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById('simNome').value.trim();
+    const cpf = document.getElementById('simCpf').value.trim();
+    const nasc = document.getElementById('simNasc').value.trim();
+    const moto = document.getElementById('simMoto').value;
+    const entrada = document.getElementById('simEntrada').value.trim() || 'Não informada';
+
+    let valid = true;
+
+    if (!nome) { document.getElementById('f-nome').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-nome').classList.remove('invalid'); }
+
+    if (cpf.length < 14) { document.getElementById('f-cpf').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-cpf').classList.remove('invalid'); }
+
+    if (nasc.length < 10) { document.getElementById('f-nasc').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-nasc').classList.remove('invalid'); }
+
+    if (!moto) { document.getElementById('f-moto').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-moto').classList.remove('invalid'); }
+
+    if (!valid) return;
+
+    const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
+                  `👤 *Nome:* ${nome}\n` +
+                  `📄 *CPF:* ${cpf}\n` +
+                  `📅 *Data Nasc:* ${nasc}\n` +
+                  `🏍️ *Modelo:* ${moto}\n` +
+                  `💰 *Entrada:* ${entrada}`;
+
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+      closeFinanceModal();
+      window.open(`https://wa.me/5592991623048?text=${encodeURIComponent(texto)}`, '_blank');
+    }, 1000);
   }
 </script>
 
