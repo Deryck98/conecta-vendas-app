@@ -1126,15 +1126,16 @@
 
     if (!valid) return;
 
-    const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
-                  `👤 *Nome:* ${nome}\n` +
-                  `📄 *CPF:* ${cpf}\n` +
-                  `📅 *Data Nasc:* ${nasc}\n` +
-                  `💼 *Profissão:* ${profissao}\n` +
-                  `💵 *Renda Mensal:* ${renda}\n` +
-                  `🪪 *Possui CNH:* ${cnh}\n` +
-                  `🏍️ *Modelo:* ${moto}\n` +
-                  `💰 *Entrada:* ${entrada}`;
+   const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:
+
+👤 *Nome:* ${nome}
+📄 *CPF:* ${cpf}
+📅 *Data Nasc:* ${nasc}
+💼 *Profissão:* ${profissao}
+💵 *Renda Mensal:* ${renda}
+🪪 *Possui CNH:* ${cnh}
+🏍️ *Modelo:* ${moto}
+💰 *Entrada:* ${entrada}`;
 
     const toast = document.getElementById('toast');
     toast.classList.add('show');
