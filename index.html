@@ -290,21 +290,6 @@
   .divider .line{ flex:1; height:1px; background:var(--line); }
   .divider span{ font-size:11.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--muted); font-weight:600; }
 
-  .perks{
-    display:grid; grid-template-columns:1fr 1fr; gap:10px;
-  }
-  .perk{
-    display:flex; align-items:center; gap:8px;
-    background:var(--glass);
-    border:1px solid var(--line);
-    border-radius:var(--radius-sm);
-    padding:11px 12px;
-    font-size:13px; font-weight:500;
-    opacity:0; transform:translateY(10px);
-    animation:itemIn .55s var(--ease) forwards;
-  }
-  .perk i{ color:#22C55E; font-size:13px; flex:0 0 auto; }
-
   /* MODAL */
   .modal-overlay{
     position:fixed; inset:0; z-index:50;
@@ -495,7 +480,6 @@
       <i class="fa-solid fa-chevron-right chev"></i>
     </a>
 
-    <!-- APENAS ESTA LINHA ABAIXO FOI ALTERADA (Com seu link correto do Google Maps) -->
     <a class="btn location" style="animation-delay:.32s" href="https://maps.app.goo.gl/Lp5gsjXavnLDMr9h9" target="_blank" rel="noopener">
       <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
       <span class="txt">
@@ -505,7 +489,7 @@
       <i class="fa-solid fa-chevron-right chev"></i>
     </a>
 
-    <button type="button" class="btn finance" style="animation-delay:.40s" onclick="openFinanceModal()">
+    <button type="button" class="btn finance" style="animation-delay:.40s" onclick="openFinanceModalMain()">
       <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
       <span class="txt">
         <div class="t">Simulação de Financiamento</div>
@@ -516,7 +500,7 @@
 
   </nav>
 
-  <!-- CATÁLOGO DE MOTOS -->
+  <!-- CATÁLOGO DE MOTOS COMPLETO -->
   <div class="divider" id="catalogo"><div class="line"></div><span>Catálogo de Motos</span><div class="line"></div></div>
 
   <div class="catalog-section">
@@ -524,8 +508,6 @@
     <!-- CARD MOTO 1: NEO'S CONNECTED -->
     <div class="bike-card">
       <img src="Neos.png" alt="Yamaha NEO'S" class="bike-img-main">
-      
-      <!-- 5 Miniaturas NEO'S -->
       <div class="bike-thumbs">
         <img src="Neos.png" alt="NEO'S Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Neosfarois.png" alt="Faróis" onclick="changeMainImage(this)">
@@ -533,14 +515,12 @@
         <img src="Neossmartjey.png" alt="Smart Key" onclick="changeMainImage(this)">
         <img src="Neostraseira.png" alt="Traseira" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>NEO'S Connected (Elétrica)</h3>
         <p>A scooter 100% elétrica da Yamaha. Design futurista, bateria removível, iluminação Full LED, chave presencial Smart Key e conectividade Y-Connect.</p>
         <div class="bike-price">R$ 20.990</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Neos Connected')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('NEO\'S Connected (Elétrica)')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -548,14 +528,11 @@
         </span>
         <i class="fa-solid fa-chevron-right chev"></i>
       </button>  
-
     </div>
 
     <!-- CARD MOTO 2: FLUO ABS CONNECTED -->
     <div class="bike-card">
       <img src="Fluo.png" alt="Yamaha Fluo ABS" class="bike-img-main">
-      
-      <!-- 5 Miniaturas FLUO -->
       <div class="bike-thumbs">
         <img src="Fluo.png" alt="Fluo Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Floufrente.png" alt="Frente Fluo" onclick="changeMainImage(this)">
@@ -563,13 +540,11 @@
         <img src="Fluoled.png" alt="Detalhe Fluo" onclick="changeMainImage(this)">
         <img src="Fluotraseira.png" alt="Traseira Fluo" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Fluo ABS Connected</h3>
         <p>A scooter prática e moderna para o dia a dia. Freio ABS, Sistema Stop & Start, Chave Smart Key, farol em LED e conectividade Bluetooth com Y-Connect.</p>
         <div class="bike-price">R$ 17.790</div>
       </div>
-
       <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Fluo ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
@@ -578,13 +553,11 @@
         </span>
         <i class="fa-solid fa-chevron-right chev"></i>
       </button>  
-
     </div>
   
-    <!-- CARD MOTO: NMAX 160 ABS -->
+    <!-- CARD MOTO 3: NMAX 160 ABS -->
     <div class="bike-card">
       <img src="Nmax.png" alt="Yamaha NMAX 160 ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Nmax.png" alt="Nmax Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Nmaxfrente.png" alt="Frente Nmax" onclick="changeMainImage(this)">
@@ -592,14 +565,12 @@
         <img src="Nmaxdetalhe.png" alt="Detalhe Nmax" onclick="changeMainImage(this)">
         <img src="Nmaxtraseira.png" alt="Traseira Nmax" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>NMAX 160 ABS Connected</h3>
         <p>A scooter líder de tecnologia: motor VVA de 160cc, freios ABS nas duas rodas, controle de tração, chave Smart Key e conectividade Y-Connect.</p>
         <div class="bike-price">R$ 24.290</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Nmax 160 ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('NMAX 160 ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -609,10 +580,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: XMAX ABS -->
+    <!-- CARD MOTO 4: XMAX ABS -->
     <div class="bike-card">
       <img src="Xmax.png" alt="Yamaha XMAX ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Xmax.png" alt="Xmax Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Xmaxfrente.png" alt="Frente Xmax" onclick="changeMainImage(this)">
@@ -620,14 +590,12 @@
         <img src="Xmaxdetalhe.png" alt="Detalhe Xmax" onclick="changeMainImage(this)">
         <img src="Xmaxtraseira.png" alt="Traseira Xmax" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>XMAX ABS Connected</h3>
         <p>A Sport Scooter definitiva: motor de 250cc, controle de tração, freios ABS nas duas rodas, novo painel TFT colorido e espaço sob o banco para 2 capacetes.</p>
         <div class="bike-price">R$ 39.990</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('XMAX ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('XMAX ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -637,10 +605,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: FAZER FZ15 ABS -->
+    <!-- CARD MOTO 5: FAZER FZ15 ABS -->
     <div class="bike-card">
       <img src="FZ15360.png" alt="Yamaha Fazer FZ15 ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="FZ15.png" alt="FZ15 Vista 360" class="active" onclick="changeMainImage(this)">
         <img src="FZ15frente.png" alt="Frente FZ15" onclick="changeMainImage(this)">
@@ -648,14 +615,12 @@
         <img src="FZ15detalhe.png" alt="Detalhe FZ15" onclick="changeMainImage(this)">
         <img src="FZ15traseira.png" alt="Traseira FZ15" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Fazer FZ15 ABS Connected</h3>
-        <p>Descrição temporária da FZ15.</p>
+        <p>Design agressivo de alta cilindrada no segmento 150cc. Suspensão Monocross, freio ABS dianteiro, freio a disco traseiro e painel 100% digital.</p>
         <div class="bike-price">R$ 22.190</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Fazer FZ15 ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Fazer FZ15 ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -665,10 +630,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: NOVA FACTOR -->
+    <!-- CARD MOTO 6: NOVA FACTOR -->
     <div class="bike-card">
       <img src="Factor.png" alt="Yamaha Nova Factor" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Factor.png" alt="Factor Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Factorfrente.png" alt="Frente Factor" onclick="changeMainImage(this)">
@@ -676,13 +640,11 @@
         <img src="Factordetalhe.png" alt="Detalhe Factor" onclick="changeMainImage(this)">
         <img src="Factortraseira.png" alt="Traseira Factor" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Nova Factor</h3>
-        <p>Descrição temporária da Nova Factor.</p>
+        <p>Resistência e economia incomparáveis para o seu dia a dia. Painel completo com indicador de marcha e função ECO, motor confiável e ótimo conforto.</p>
         <div class="bike-price">R$ 19.490</div>
       </div>
-
       <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Nova Factor')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
@@ -693,10 +655,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: FACTOR DX -->
+    <!-- CARD MOTO 7: FACTOR DX -->
     <div class="bike-card">
       <img src="Factordx.png" alt="Yamaha Factor DX" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Factordx.png" alt="Factor DX Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Factordxfrente.png" alt="Frente Factor DX" onclick="changeMainImage(this)">
@@ -704,13 +665,11 @@
         <img src="Factordxdetalhe.png" alt="Detalhe Factor DX" onclick="changeMainImage(this)">
         <img src="Factordxtraseira.png" alt="Traseira Factor DX" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Factor DX</h3>
-        <p>Descrição temporária da Factor DX.</p>
+        <p>Acabamento diferenciado, visual exclusivo e toda a robustez da linha Factor para quem quer trabalhar ou rodar com mais estilo.</p>
         <div class="bike-price">R$ 19.990</div>
       </div>
-
       <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Factor DX')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
@@ -721,10 +680,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: FAZER FZ25 ABS -->
+    <!-- CARD MOTO 8: FAZER FZ25 ABS -->
     <div class="bike-card">
       <img src="FZ25.png" alt="Yamaha Fazer FZ25 ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="FZ25.png" alt="FZ25 Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="FZ25frente.png" alt="Frente FZ25" onclick="changeMainImage(this)">
@@ -732,14 +690,12 @@
         <img src="FZ25detalhe.png" alt="Detalhe FZ25" onclick="changeMainImage(this)">
         <img src="FZ25traseira.png" alt="Traseira FZ25" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Fazer FZ25 ABS Connected</h3>
-        <p>Descrição temporária da FZ25.</p>
+        <p>Motor 250cc potente e durável, freios ABS de série nas duas rodas, farol de LED com DRL e excelente agilidade urbana e rodoviária.</p>
         <div class="bike-price">R$ 26.190</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Fazer FZ25 ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Fazer FZ25 ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -749,10 +705,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: CROSSER S ABS -->
+    <!-- CARD MOTO 9: CROSSER S ABS -->
     <div class="bike-card">
       <img src="Crossers.png" alt="Yamaha Crosser S ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Crossers.png" alt="Crosser S Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Crossersfrente.png" alt="Frente Crosser S" onclick="changeMainImage(this)">
@@ -760,14 +715,12 @@
         <img src="Crossersdetalhe.png" alt="Detalhe Crosser S" onclick="changeMainImage(this)">
         <img src="Crosserstraseira.png" alt="Traseira Crosser S" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Crosser S ABS Connected</h3>
-        <p>Descrição temporária da Crosser S.</p>
+        <p>Versatilidade on/off-road com paralama baixo, freio ABS dianteiro, suspensão Monocross e painel multifuncional com relógio e indicador de marcha.</p>
         <div class="bike-price">R$ 23.790</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Crosser S ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Crosser S ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -777,10 +730,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: CROSSER Z ABS -->
+    <!-- CARD MOTO 10: CROSSER Z ABS -->
     <div class="bike-card">
       <img src="Crosserz.png" alt="Yamaha Crosser Z ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Crosserz.png" alt="Crosser Z Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Crosserzfrente.png" alt="Frente Crosser Z" onclick="changeMainImage(this)">
@@ -788,14 +740,12 @@
         <img src="Crosserzdetalhe.png" alt="Detalhe Crosser Z" onclick="changeMainImage(this)">
         <img src="Crosserztraseira.png" alt="Traseira Crosser Z" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Crosser Z ABS Connected</h3>
-        <p>Descrição temporária da Crosser Z.</p>
+        <p>Estilo aventureiro com paralama alto no estilo competição, motor 150cc Flex, freio ABS dianteiro e protetor de bengala de série.</p>
         <div class="bike-price">R$ 23.990</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Crosser Z ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Crosser Z ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -805,10 +755,9 @@
       </button>  
     </div>
 
-    <!-- CARD MOTO: LANDER 250 ABS -->
+    <!-- CARD MOTO 11: LANDER 250 ABS -->
     <div class="bike-card">
       <img src="Lander.png" alt="Yamaha Lander 250 ABS" class="bike-img-main">
-      
       <div class="bike-thumbs">
         <img src="Lander.png" alt="Lander 250 Vista Geral" class="active" onclick="changeMainImage(this)">
         <img src="Landerfrente.png" alt="Frente Lander 250" onclick="changeMainImage(this)">
@@ -816,14 +765,12 @@
         <img src="Landerdetalhe.png" alt="Detalhe Lander 250" onclick="changeMainImage(this)">
         <img src="Landertraseira.png" alt="Traseira Lander 250" onclick="changeMainImage(this)">
       </div>
-
       <div class="bike-info">
         <h3>Lander 250 ABS Connected</h3>
-        <p>Descrição temporária da Lander 250.</p>
+        <p>A trail pronta para qualquer desafio: motor 250cc, ergonomia impecável, freio ABS na dianteira, iluminação Full LED e robustez incomparável.</p>
         <div class="bike-price">R$ 30.990</div>
       </div>
-
-      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Lander 250 ABS')">
+      <button type="button" class="btn primary" onclick="abrirSimulacaoMoto('Lander 250 ABS Connected')">
         <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
         <span class="txt">
           <div class="t">Tenho interesse</div>
@@ -845,7 +792,7 @@
 
 </main>
 
-<!-- MODAL SIMULAÇÃO ORIGINAL -->
+<!-- MODAL SIMULAÇÃO COMPLETO -->
 <div class="modal-overlay" id="financeModal">
   <div class="modal">
     <div class="modal-head">
@@ -858,6 +805,7 @@
     </div>
 
     <form class="modal-form" id="simForm" onsubmit="submitFinance(event)">
+      
       <div class="field" id="f-nome">
         <label>Nome Completo <span class="req">*</span></label>
         <input type="text" id="simNome" placeholder="Ex: João Silva" required>
@@ -872,6 +820,28 @@
           <label>Data Nasc. <span class="req">*</span></label>
           <input type="text" id="simNasc" placeholder="DD/MM/AAAA" required maxlength="10" oninput="maskDate(this)">
         </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field" id="f-profissao">
+          <label>Profissão <span class="req">*</span></label>
+          <input type="text" id="simProfissao" placeholder="Ex: Autônomo / CLT" required>
+        </div>
+        <div class="field" id="f-renda">
+          <label>Renda Mensal <span class="req">*</span></label>
+          <input type="text" id="simRenda" placeholder="Ex: R$ 3.000,00" required>
+        </div>
+      </div>
+
+      <div class="field" id="f-cnh">
+        <label>Possui CNH / Habilitação? <span class="req">*</span></label>
+        <select id="simCnh" required>
+          <option value="">Selecione...</option>
+          <option value="Sim (Categoria A)">Sim (Categoria A)</option>
+          <option value="Sim (Apenas B)">Sim (Apenas B)</option>
+          <option value="Não possui CNH">Não possui CNH</option>
+          <option value="Em processo de tirar">Em processo de tirar</option>
+        </select>
       </div>
 
       <div class="field" id="f-moto">
@@ -920,8 +890,15 @@
     thumbElement.classList.add('active');
   }
 
+  /* Quando abre pelo catálogo, preenche o modelo selecionado */
   function abrirSimulacaoMoto(modelo) {
     document.getElementById('simMoto').value = modelo;
+    openFinanceModal();
+  }
+
+  /* Quando abre pelo botão principal de simulação, LIMPA o modelo */
+  function openFinanceModalMain() {
+    document.getElementById('simMoto').value = "";
     openFinanceModal();
   }
 
@@ -964,6 +941,9 @@
     const nome = document.getElementById('simNome').value.trim();
     const cpf = document.getElementById('simCpf').value.trim();
     const nasc = document.getElementById('simNasc').value.trim();
+    const profissao = document.getElementById('simProfissao').value.trim();
+    const renda = document.getElementById('simRenda').value.trim();
+    const cnh = document.getElementById('simCnh').value;
     const moto = document.getElementById('simMoto').value;
     const entrada = document.getElementById('simEntrada').value.trim() || 'Não informada';
 
@@ -978,6 +958,15 @@
     if (nasc.length < 10) { document.getElementById('f-nasc').classList.add('invalid'); valid = false; }
     else { document.getElementById('f-nasc').classList.remove('invalid'); }
 
+    if (!profissao) { document.getElementById('f-profissao').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-profissao').classList.remove('invalid'); }
+
+    if (!renda) { document.getElementById('f-renda').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-renda').classList.remove('invalid'); }
+
+    if (!cnh) { document.getElementById('f-cnh').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-cnh').classList.remove('invalid'); }
+
     if (!moto) { document.getElementById('f-moto').classList.add('invalid'); valid = false; }
     else { document.getElementById('f-moto').classList.remove('invalid'); }
 
@@ -987,6 +976,9 @@
                   `👤 *Nome:* ${nome}\n` +
                   `📄 *CPF:* ${cpf}\n` +
                   `📅 *Data Nasc:* ${nasc}\n` +
+                  `💼 *Profissão:* ${profissao}\n` +
+                  `💵 *Renda Mensal:* ${renda}\n` +
+                  `🪪 *CNH:* ${cnh}\n` +
                   `🏍️ *Modelo:* ${moto}\n` +
                   `💰 *Entrada:* ${entrada}`;
 
