@@ -1126,16 +1126,19 @@
 
     if (!valid) return;
 
-const texto = Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n +
-👤 *Nome:* ${nome}\n +
-📄 *CPF:* ${cpf}\n +
-📅 *Data Nasc:* ${nasc}\n +
-✉️ *E-mail:* ${email}\n +
-💼 *Profissão:* ${profissao}\n +
-💵 *Renda Mensal:* ${renda}\n +
-🪪 *Possui CNH:* ${cnh}\n +
-🏍️ *Modelo:* ${moto}\n +
-💰 *Entrada:* ${entrada};
+const emailInput = document.getElementById('f-email') || document.getElementById('email');
+const email = emailInput ? emailInput.value : '';
+
+const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
+`👤 *Nome:* ${nome}\n` +
+`📄 *CPF:* ${cpf}\n` +
+`📅 *Data Nasc:* ${nasc}\n` +
+`✉️ *E-mail:* ${email}\n` +
+`💼 *Profissão:* ${profissao}\n` +
+`💵 *Renda Mensal:* ${renda}\n` +
+`🪪 *Possui CNH:* ${cnh}\n` +
+`🏍️ *Modelo:* ${moto}\n` +
+`💰 *Entrada:* ${entrada}`;
     const toast = document.getElementById('toast');
     toast.classList.add('show');
 
