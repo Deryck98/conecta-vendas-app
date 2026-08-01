@@ -1025,6 +1025,12 @@
 
   function openFinanceModal(){
     if(financeOverlay){
+      // Reseta o campo de modelo para a opção padrão "Selecione o modelo" ao abrir pelo botão do topo
+      var campoModelo = document.getElementById('f-modelo');
+      if (campoModelo) {
+        campoModelo.value = "";
+      }
+      
       financeOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -1038,11 +1044,11 @@
   }
 
   function abrirSimulacaoMoto(nomeMoto) {
+    openFinanceModal(); // Abre o modal
     var campoModelo = document.getElementById('f-modelo');
     if (campoModelo) {
-      campoModelo.value = nomeMoto;
+      campoModelo.value = nomeMoto; // Sobrescreve e seleciona a moto específica do catálogo
     }
-    openFinanceModal();
   }
 
   if (financeOverlay) {
