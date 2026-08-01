@@ -1126,7 +1126,8 @@
 
     if (!valid) return;
 
- const email = document.getElementById('f-email') ? document.getElementById('f-email').value : '';
+const campoEmail = document.getElementById('f-email') || document.getElementById('email');
+const email = campoEmail ? campoEmail.value : '';
 
 const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:
 
