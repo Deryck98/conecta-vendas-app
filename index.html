@@ -972,6 +972,11 @@
         </div>
       </div>
 
+      <div class="field" id="f-email">
+        <label>E-mail <span class="req">*</span></label>
+        <input type="email" id="simEmail" placeholder="seuemail@exemplo.com" required>
+      </div>
+
       <div class="row-2">
         <div class="field" id="f-profissao">
           <label>Profissão <span class="req">*</span></label>
@@ -1095,6 +1100,7 @@
     const nome = document.getElementById('simNome').value.trim();
     const cpf = document.getElementById('simCpf').value.trim();
     const nasc = document.getElementById('simNasc').value.trim();
+    const email = document.getElementById('simEmail').value.trim();
     const profissao = document.getElementById('simProfissao').value.trim();
     const renda = document.getElementById('simRenda').value.trim();
     const cnh = document.getElementById('simCnh').value;
@@ -1112,6 +1118,9 @@
     if (nasc.length < 10) { document.getElementById('f-nasc').classList.add('invalid'); valid = false; }
     else { document.getElementById('f-nasc').classList.remove('invalid'); }
 
+    if (!email || !email.includes('@')) { document.getElementById('f-email').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-email').classList.remove('invalid'); }
+
     if (!profissao) { document.getElementById('f-profissao').classList.add('invalid'); valid = false; }
     else { document.getElementById('f-profissao').classList.remove('invalid'); }
 
@@ -1126,19 +1135,17 @@
 
     if (!valid) return;
 
-const emailInput = document.getElementById('f-email') || document.getElementById('email');
-const email = emailInput ? emailInput.value : '';
+    const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
+    `👤 *Nome:* ${nome}\n` +
+    `📄 *CPF:* ${cpf}\n` +
+    `📅 *Data Nasc:* ${nasc}\n` +
+    `✉️ *E-mail:* ${email}\n` +
+    `💼 *Profissão:* ${profissao}\n` +
+    `💵 *Renda Mensal:* ${renda}\n` +
+    `🪪 *Possui CNH:* ${cnh}\n` +
+    `🏍️ *Modelo:* ${moto}\n` +
+    `💰 *Entrada:* ${entrada}`;
 
-const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
-`👤 *Nome:* ${nome}\n` +
-`📄 *CPF:* ${cpf}\n` +
-`📅 *Data Nasc:* ${nasc}\n` +
-`✉️ *E-mail:* ${email}\n` +
-`💼 *Profissão:* ${profissao}\n` +
-`💵 *Renda Mensal:* ${renda}\n` +
-`🪪 *Possui CNH:* ${cnh}\n` +
-`🏍️ *Modelo:* ${moto}\n` +
-`💰 *Entrada:* ${entrada}`;
     const toast = document.getElementById('toast');
     toast.classList.add('show');
 
