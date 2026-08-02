@@ -1157,14 +1157,28 @@
     `\u{1F3CD}\u{FE0F} *Modelo:* ${moto}\n` +
     `\u{1F4B0} *Entrada:* ${entrada}`;
 
+    const url = `https://wa.me/5592991623048?text=${encodeURIComponent(texto)}`;
+
+    // Abre a janela IMEDIATAMENTE, ainda dentro do gesto de clique do usuário.
+    // Isso evita o bloqueio de pop-up que ocorre em navegadores mobile
+    // (principalmente Safari/iOS e navegadores internos como o do Instagram)
+    // quando o redirecionamento acontece com atraso via setTimeout.
+    const whatsappWindow = window.open(url, '_blank');
+
     const toast = document.getElementById('toast');
     toast.classList.add('show');
+    closeFinanceModal();
+
+    // Fallback: se o pop-up mesmo assim for bloqueado (whatsappWindow nulo
+    // ou navegador que ignora window.open), tenta redirecionar a própria
+    // aba atual para o WhatsApp.
+    if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
+      window.location.href = url;
+    }
 
     setTimeout(() => {
       toast.classList.remove('show');
-      closeFinanceModal();
-      window.open(`https://wa.me/5592991623048?text=${encodeURIComponent(texto)}`, '_blank');
-    }, 1000);
+    }, 2500);
   }
 </script>
 
