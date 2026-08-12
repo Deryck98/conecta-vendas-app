@@ -1034,6 +1034,21 @@
         <input type="text" id="simEntrada" inputmode="numeric" placeholder="R$ 0,00" oninput="maskCurrency(this)">
       </div>
 
+      <div class="field" id="f-prazo">
+        <label>Prazo Desejado <span class="req">*</span></label>
+        <select id="simPrazo" required>
+          <option value="">Selecione...</option>
+          <option value="6x">6x</option>
+          <option value="12x">12x</option>
+          <option value="18x">18x</option>
+          <option value="24x">24x</option>
+          <option value="30x">30x</option>
+          <option value="36x">36x</option>
+          <option value="42x">42x</option>
+          <option value="48x">48x</option>
+        </select>
+      </div>
+
       <button type="submit" class="modal-submit">
         <i class="fa-brands fa-whatsapp" style="font-size:18px;"></i>
         Enviar Dados via WhatsApp
@@ -1125,6 +1140,7 @@
     const cnh = document.getElementById('simCnh').value;
     const moto = document.getElementById('simMoto').value;
     const entrada = document.getElementById('simEntrada').value.trim() || 'Não informada';
+    const prazo = document.getElementById('simPrazo').value;
 
     let valid = true;
 
@@ -1152,6 +1168,9 @@
     if (!moto) { document.getElementById('f-moto').classList.add('invalid'); valid = false; }
     else { document.getElementById('f-moto').classList.remove('invalid'); }
 
+    if (!prazo) { document.getElementById('f-prazo').classList.add('invalid'); valid = false; }
+    else { document.getElementById('f-prazo').classList.remove('invalid'); }
+
     if (!valid) return;
 
     const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
@@ -1163,7 +1182,8 @@
     `\u{1F4B5} *Renda Mensal:* ${renda}\n` +
     `\u{1FAAA} *Possui CNH:* ${cnh}\n` +
     `\u{1F3CD}\u{FE0F} *Modelo:* ${moto}\n` +
-    `\u{1F4B0} *Entrada:* ${entrada}`;
+    `\u{1F4B0} *Entrada:* ${entrada}\n` +
+    `\u{1F4C6} *Prazo:* ${prazo}`;
 
     const url = `https://wa.me/5592991623048?text=${encodeURIComponent(texto)}`;
 
