@@ -325,6 +325,56 @@
   .btn.catalog .icon{ background:rgba(47,111,224,0.18); color:var(--blue-bright); }
   .btn.location .icon{ background:rgba(228,0,43,0.16); color:#FF5C74; }
   .btn.finance .icon{ background:rgba(255,255,255,0.10); color:var(--white); }
+  .btn.liberacred .icon{ background:rgba(255,193,7,0.16); color:#FFC107; }
+
+  /* TABELA LIBERACRED */
+  .liberacred-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:linear-gradient(90deg, rgba(255,193,7,0.20), rgba(255,111,0,0.14));
+    border:1px solid rgba(255,193,7,0.30);
+    color:#FFC107; font-size:11.5px; font-weight:700;
+    padding:5px 11px; border-radius:999px;
+    margin-bottom:10px;
+  }
+  .liberacred-intro{
+    font-size:13px; color:var(--muted); line-height:1.55; margin:0 0 14px;
+  }
+  .liberacred-plans{
+    display:flex; flex-direction:column; gap:8px;
+    margin-bottom:16px;
+  }
+  .liberacred-plan{
+    display:flex; align-items:flex-start; gap:10px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:11px 12px;
+  }
+  .liberacred-plan i{ color:#FFC107; margin-top:2px; font-size:13px; }
+  .liberacred-plan strong{ color:var(--white); }
+  .liberacred-plan span{ font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .liberacred-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:8px;
+    margin-bottom:6px;
+  }
+  .liberacred-item{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px 12px;
+  }
+  .liberacred-item .m{ font-size:12.5px; font-weight:700; color:var(--white); margin-bottom:3px; }
+  .liberacred-item .p{ font-size:11px; color:var(--muted); margin-bottom:2px; }
+  .liberacred-item .v{ font-size:14.5px; font-weight:700; color:#FFC107; }
+  .liberacred-item.launch{
+    grid-column:1 / -1;
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(90deg, rgba(255,193,7,0.14), rgba(228,0,43,0.10));
+    border-color:rgba(255,193,7,0.25);
+  }
+  .liberacred-note{
+    font-size:11px; color:var(--muted); text-align:center; margin-top:12px; line-height:1.5;
+  }
 
   /* CATÁLOGO DE MOTOS */
   .catalog-section{
@@ -699,6 +749,15 @@
       <span class="txt">
         <div class="t">Simulação de Financiamento</div>
         <div class="d">Descubra as melhores condições</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </button>
+
+    <button type="button" class="btn liberacred" style="animation-delay:.46s" onclick="openLiberacredModal()">
+      <span class="icon"><i class="fa-solid fa-piggy-bank"></i></span>
+      <span class="txt">
+        <div class="t">Liberacred - Mesmo para Negativados</div>
+        <div class="d">Financiamento com entrada parcelada</div>
       </span>
       <i class="fa-solid fa-chevron-right chev"></i>
     </button>
@@ -1148,6 +1207,66 @@
 </main>
 
 <!-- MODAL SIMULAÇÃO COMPLETO -->
+<div class="modal-overlay" id="liberacredModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="icon"><i class="fa-solid fa-piggy-bank" style="color:#FFC107;"></i></div>
+      <div>
+        <h2>Liberacred</h2>
+        <p>Financiamento Yamaha mesmo para negativados ou com score baixo.</p>
+      </div>
+      <button type="button" class="modal-close" onclick="closeLiberacredModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="liberacred-badge"><i class="fa-solid fa-shield-heart"></i> Aprovação facilitada</div>
+
+    <p class="liberacred-intro">Você paga uma entrada parcelada direto pro banco Yamaha. Cada parcela paga vai formando o valor da sua entrada. Ao completar o plano, o financiamento da moto é liberado — mesmo se você estiver negativado ou com score baixo.</p>
+
+    <div class="liberacred-plans">
+      <div class="liberacred-plan">
+        <i class="fa-solid fa-circle-check"></i>
+        <span><strong>Plano 12x:</strong> pague 8 parcelas e já leva a moto.</span>
+      </div>
+      <div class="liberacred-plan">
+        <i class="fa-solid fa-circle-check"></i>
+        <span><strong>Plano 18x:</strong> pague 12 parcelas (ou antecipe a partir da 8ª) e já leva a moto.</span>
+      </div>
+    </div>
+
+    <div class="liberacred-badge" style="margin-bottom:10px;">Valores do plano 18x - a partir de:</div>
+
+    <div class="liberacred-grid">
+      <div class="liberacred-item"><div class="m">Fluo 125</div><div class="v">R$ 430,85</div></div>
+      <div class="liberacred-item"><div class="m">Aerox 160</div><div class="v">R$ 484,26</div></div>
+      <div class="liberacred-item"><div class="m">NMAX 160</div><div class="v">R$ 588,67</div></div>
+      <div class="liberacred-item"><div class="m">Factor ED</div><div class="v">R$ 472,12</div></div>
+      <div class="liberacred-item"><div class="m">Factor DX</div><div class="v">R$ 484,26</div></div>
+      <div class="liberacred-item"><div class="m">FZ-15</div><div class="v">R$ 537,68</div></div>
+      <div class="liberacred-item"><div class="m">FZ-25</div><div class="v">R$ 634,80</div></div>
+      <div class="liberacred-item"><div class="m">Crosser S</div><div class="v">R$ 576,53</div></div>
+      <div class="liberacred-item"><div class="m">Crosser Z</div><div class="v">R$ 581,38</div></div>
+      <div class="liberacred-item"><div class="m">Lander 250</div><div class="v">R$ 734,35</div></div>
+      <div class="liberacred-item"><div class="m">R15</div><div class="v">R$ 593,52</div></div>
+      <div class="liberacred-item"><div class="m">TTR 230</div><div class="v">R$ 513,40</div></div>
+      <div class="liberacred-item launch">
+        <div><div class="m">ZR 125 <span style="color:#FFC107;">· Lançamento</span></div><div class="v">R$ 362,86</div></div>
+        <i class="fa-solid fa-star" style="color:#FFC107;"></i>
+      </div>
+    </div>
+
+    <a class="btn primary" style="margin-top:6px;" href="https://wa.me/5592991623048?text=Ol%C3%A1%2C%20Deryck!%20Tenho%20interesse%20no%20Liberacred%20(financiamento%20com%20entrada%20parcelada)." target="_blank" rel="noopener">
+      <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
+      <span class="txt">
+        <div class="t">Falar sobre o Liberacred</div>
+        <div class="d">Consultar condições pelo WhatsApp</div>
+      </span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </a>
+
+    <div class="liberacred-note">Valores referentes ao plano de 18x. Consulte condições atualizadas com Deryck Alec.</div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="financeModal">
   <div class="modal">
     <div class="modal-head">
@@ -1306,6 +1425,22 @@
     modal.classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  function openLiberacredModal() {
+    const modal = document.getElementById('liberacredModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLiberacredModal() {
+    const modal = document.getElementById('liberacredModal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('liberacredModal').addEventListener('click', function(e) {
+    if (e.target === this) closeLiberacredModal();
+  });
 
   document.getElementById('financeModal').addEventListener('click', function(e) {
     if (e.target === this) closeFinanceModal();
