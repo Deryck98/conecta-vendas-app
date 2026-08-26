@@ -325,14 +325,14 @@
   .btn.catalog .icon{ background:rgba(47,111,224,0.18); color:var(--blue-bright); }
   .btn.location .icon{ background:rgba(228,0,43,0.16); color:#FF5C74; }
   .btn.finance .icon{ background:rgba(255,255,255,0.10); color:var(--white); }
-  .btn.liberacred .icon{ background:rgba(255,193,7,0.16); color:#FFC107; }
+  .btn.liberacred .icon{ background:rgba(34,197,94,0.16); color:#22C55E; }
 
   /* TABELA LIBERACRED */
   .liberacred-badge{
     display:inline-flex; align-items:center; gap:6px;
-    background:linear-gradient(90deg, rgba(255,193,7,0.20), rgba(255,111,0,0.14));
-    border:1px solid rgba(255,193,7,0.30);
-    color:#FFC107; font-size:11.5px; font-weight:700;
+    background:linear-gradient(90deg, rgba(34,197,94,0.20), rgba(23,168,92,0.14));
+    border:1px solid rgba(34,197,94,0.30);
+    color:#22C55E; font-size:11.5px; font-weight:700;
     padding:5px 11px; border-radius:999px;
     margin-bottom:10px;
   }
@@ -350,7 +350,7 @@
     border-radius:12px;
     padding:11px 12px;
   }
-  .liberacred-plan i{ color:#FFC107; margin-top:2px; font-size:13px; }
+  .liberacred-plan i{ color:#22C55E; margin-top:2px; font-size:13px; }
   .liberacred-plan strong{ color:var(--white); }
   .liberacred-plan span{ font-size:12.5px; color:var(--muted); line-height:1.5; }
   .liberacred-grid{
@@ -365,12 +365,12 @@
   }
   .liberacred-item .m{ font-size:12.5px; font-weight:700; color:var(--white); margin-bottom:3px; }
   .liberacred-item .p{ font-size:11px; color:var(--muted); margin-bottom:2px; }
-  .liberacred-item .v{ font-size:14.5px; font-weight:700; color:#FFC107; }
+  .liberacred-item .v{ font-size:14.5px; font-weight:700; color:#22C55E; }
   .liberacred-item.launch{
     grid-column:1 / -1;
     display:flex; align-items:center; justify-content:space-between;
-    background:linear-gradient(90deg, rgba(255,193,7,0.14), rgba(228,0,43,0.10));
-    border-color:rgba(255,193,7,0.25);
+    background:linear-gradient(90deg, rgba(34,197,94,0.14), rgba(228,0,43,0.10));
+    border-color:rgba(34,197,94,0.25);
   }
   .liberacred-note{
     font-size:11px; color:var(--muted); text-align:center; margin-top:12px; line-height:1.5;
@@ -1210,7 +1210,7 @@
 <div class="modal-overlay" id="liberacredModal">
   <div class="modal">
     <div class="modal-head">
-      <div class="icon"><i class="fa-solid fa-piggy-bank" style="color:#FFC107;"></i></div>
+      <div class="icon"><i class="fa-solid fa-piggy-bank" style="color:#22C55E;"></i></div>
       <div>
         <h2>Liberacred</h2>
         <p>Financiamento Yamaha mesmo para negativados ou com score baixo.</p>
@@ -1249,8 +1249,8 @@
       <div class="liberacred-item"><div class="m">R15</div><div class="v">R$ 593,52</div></div>
       <div class="liberacred-item"><div class="m">TTR 230</div><div class="v">R$ 513,40</div></div>
       <div class="liberacred-item launch">
-        <div><div class="m">ZR 125 <span style="color:#FFC107;">· Lançamento</span></div><div class="v">R$ 362,86</div></div>
-        <i class="fa-solid fa-star" style="color:#FFC107;"></i>
+        <div><div class="m">ZR 125 <span style="color:#22C55E;">· Lançamento</span></div><div class="v">R$ 362,86</div></div>
+        <i class="fa-solid fa-star" style="color:#22C55E;"></i>
       </div>
     </div>
 
@@ -1520,16 +1520,16 @@
     if (!valid) return;
 
     const texto = `Olá, Deryck! Gostaria de fazer uma simulação de financiamento:\n\n` +
-    `\u{1F464} *Nome:* ${nome}\n` +
-    `\u{1F4C4} *CPF:* ${cpf}\n` +
-    `\u{1F4C5} *Data Nasc:* ${nasc}\n` +
-    `\u{2709}\u{FE0F} *E-mail:* ${email}\n` +
-    `\u{1F4BC} *Profissão:* ${profissao}\n` +
-    `\u{1F4B5} *Renda Mensal:* ${renda}\n` +
-    `\u{1FAAA} *Possui CNH:* ${cnh}\n` +
-    `\u{1F3CD}\u{FE0F} *Modelo:* ${moto}\n` +
-    `\u{1F4B0} *Entrada:* ${entrada}\n` +
-    `\u{1F4C6} *Prazo:* ${prazo}`;
+    `👤 *Nome:* ${nome}\n` +
+    `📄 *CPF:* ${cpf}\n` +
+    `📅 *Data Nasc:* ${nasc}\n` +
+    `✉️ *E-mail:* ${email}\n` +
+    `💼 *Profissão:* ${profissao}\n` +
+    `💵 *Renda Mensal:* ${renda}\n` +
+    `🪪 *Possui CNH:* ${cnh}\n` +
+    `🏍️ *Modelo:* ${moto}\n` +
+    `💰 *Entrada:* ${entrada}\n` +
+    `📆 *Prazo:* ${prazo}`;
 
     const url = `https://wa.me/5592991623048?text=${encodeURIComponent(texto)}`;
 
