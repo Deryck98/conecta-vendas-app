@@ -1533,22 +1533,18 @@
 
     const url = `https://wa.me/5592991623048?text=${encodeURIComponent(texto)}`;
 
-    // Abre a janela IMEDIATAMENTE, ainda dentro do gesto de clique do usuário.
-    // Isso evita o bloqueio de pop-up que ocorre em navegadores mobile
-    // (principalmente Safari/iOS e navegadores internos como o do Instagram)
-    // quando o redirecionamento acontece com atraso via setTimeout.
-    const whatsappWindow = window.open(url, '_blank');
-
     const toast = document.getElementById('toast');
     toast.classList.add('show');
     closeFinanceModal();
 
-    // Fallback: se o pop-up mesmo assim for bloqueado (whatsappWindow nulo
-    // ou navegador que ignora window.open), tenta redirecionar a própria
-    // aba atual para o WhatsApp.
-    if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
+    // Redirecionamento direto na mesma aba. Usar window.open() para abrir
+    // em nova aba pode corromper caracteres especiais (como os emojis) em
+    // alguns navegadores mobile e navegadores internos (Instagram, etc.),
+    // então mantemos apenas o redirecionamento direto, que preserva o
+    // texto corretamente em todos os dispositivos.
+    setTimeout(() => {
       window.location.href = url;
-    }
+    }, 300);
 
     setTimeout(() => {
       toast.classList.remove('show');
