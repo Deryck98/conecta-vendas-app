@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://deryck98.github.io/conecta-vendas-app/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/liberacred/</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/neos-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/fluo-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/nmax-160-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/xmax-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/fazer-fz15-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/nova-factor/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/factor-dx/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/fazer-fz25-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/crosser-s-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/crosser-z-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/lander-250-abs-connected/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/yzf-r15-abs/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/yzf-r3-abs/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/mt-03-abs/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/mt-07-abs/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/tt-r-230/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://deryck98.github.io/conecta-vendas-app/tenere-700-abs/</loc><lastmod>2026-08-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
