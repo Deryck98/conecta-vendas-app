@@ -419,7 +419,17 @@
   .liberacred-installments{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   .liberacred-installment{
     background:rgba(47,111,224,0.12); border:1px solid rgba(47,111,224,0.22);
-    border-radius:11px; padding:10px; text-align:center;
+    border-radius:11px; padding:10px; text-align:center; cursor:pointer;
+    font-family:'Inter',sans-serif; transition:all .2s var(--ease);
+  }
+  .liberacred-installment:hover{ border-color:rgba(34,197,94,.55); transform:translateY(-1px); }
+  .liberacred-installment.active{
+    background:rgba(34,197,94,.18); border-color:#22C55E;
+    box-shadow:0 10px 24px -16px rgba(34,197,94,.9);
+  }
+  .liberacred-installment.active::after{
+    content:'✓ Selecionado'; display:block; color:#22C55E;
+    font-size:10.5px; font-weight:700; margin-top:5px;
   }
   .liberacred-installment .term{ color:var(--muted); font-size:11px; margin-bottom:3px; }
   .liberacred-installment .amount{ color:var(--white); font-size:14px; font-weight:700; }
@@ -1324,7 +1334,7 @@
       <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
       <span class="txt">
         <div class="t">Quero esta condição</div>
-        <div class="d">Enviar a escolha pelo WhatsApp</div>
+        <div class="d" id="liberacredWhatsappHint">Selecione um plano acima</div>
       </span>
       <i class="fa-solid fa-chevron-right chev"></i>
     </a>
@@ -1515,6 +1525,8 @@
 
   let liberacredSelectedMoto = '';
   let liberacredSelectedPercentage = null;
+  let liberacredSelectedTerm = null;
+  let liberacredSelectedAmount = '';
 
   function initLiberacredSimulator() {
     const select = document.getElementById('liberacredMoto');
@@ -1529,6 +1541,8 @@
   function selectLiberacredMoto(key) {
     liberacredSelectedMoto = key;
     liberacredSelectedPercentage = null;
+    liberacredSelectedTerm = null;
+    liberacredSelectedAmount = '';
     const bike = liberacredData[key];
     const summary = document.getElementById('liberacredBikeSummary');
     const percentageStep = document.getElementById('liberacredPercentageStep');
@@ -1553,6 +1567,8 @@
   function selectLiberacredPercentage(percentage) {
     if (!liberacredSelectedMoto) return;
     liberacredSelectedPercentage = percentage;
+    liberacredSelectedTerm = null;
+    liberacredSelectedAmount = '';
     document.querySelectorAll('.liberacred-percentage').forEach(btn => {
       btn.classList.toggle('active', Number(btn.dataset.percent) === percentage);
     });
@@ -1561,27 +1577,39 @@
     document.getElementById('liberacredAccumulated').textContent = plan.accumulated;
     const installments = document.getElementById('liberacredInstallments');
     installments.innerHTML = Object.entries(plan.installments).map(([term, amount]) =>
-      `<div class="liberacred-installment"><div class="term">Plano em ${term}x</div><div class="amount">${term}x de ${amount}</div></div>`
+      `<button type="button" class="liberacred-installment" data-term="${term}" data-amount="${amount}" aria-pressed="false" onclick="selectLiberacredPlan(this)"><div class="term">Plano em ${term}x</div><div class="amount">${term}x de ${amount}</div></button>`
     ).join('');
     document.getElementById('liberacredResult').classList.add('show');
     updateLiberacredWhatsapp();
   }
 
+  function selectLiberacredPlan(button) {
+    liberacredSelectedTerm = button.dataset.term;
+    liberacredSelectedAmount = button.dataset.amount;
+    document.querySelectorAll('.liberacred-installment').forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    updateLiberacredWhatsapp();
+  }
+
   function updateLiberacredWhatsapp() {
     const button = document.getElementById('liberacredWhatsapp');
-    if (!liberacredSelectedMoto || !liberacredSelectedPercentage) {
+    const hint = document.getElementById('liberacredWhatsappHint');
+    if (!liberacredSelectedMoto || !liberacredSelectedPercentage || !liberacredSelectedTerm) {
       button.href = '#';
       button.setAttribute('aria-disabled', 'true');
+      hint.textContent = liberacredSelectedPercentage ? 'Selecione um plano acima' : 'Escolha a moto, a entrada e o plano';
       return;
     }
     const bike = liberacredData[liberacredSelectedMoto];
     const plan = bike.plans[liberacredSelectedPercentage];
-    const installmentText = Object.entries(plan.installments)
-      .map(([term, amount]) => `${term}x de ${amount}`)
-      .join(' | ');
-    const message = `Olá, Deryck! Tenho interesse no Liberacred.\n\nMoto: ${bike.name}\nEntrada escolhida: ${liberacredSelectedPercentage}% (${plan.accumulated})\nParcelas disponíveis: ${installmentText}\n\nGostaria de confirmar as condições atualizadas.`;
+    const selectedPlan = `${liberacredSelectedTerm}x de ${liberacredSelectedAmount}`;
+    const message = `Olá, Deryck! Tenho interesse no Liberacred.\n\nMoto: ${bike.name}\nEntrada escolhida: ${liberacredSelectedPercentage}% (${plan.accumulated})\nPlano escolhido: ${selectedPlan}\n\nGostaria de confirmar as condições atualizadas.`;
     button.href = `https://wa.me/5592991623048?text=${encodeURIComponent(message)}`;
     button.removeAttribute('aria-disabled');
+    hint.textContent = `Enviar: ${selectedPlan}`;
   }
 
   initLiberacredSimulator();
