@@ -327,7 +327,7 @@
   .btn.finance .icon{ background:rgba(255,255,255,0.10); color:var(--white); }
   .btn.liberacred .icon{ background:rgba(34,197,94,0.16); color:#22C55E; }
 
-  /* TABELA LIBERACRED */
+  /* SIMULADOR LIBERACRED */
   .liberacred-badge{
     display:inline-flex; align-items:center; gap:6px;
     background:linear-gradient(90deg, rgba(34,197,94,0.20), rgba(23,168,92,0.14));
@@ -353,25 +353,71 @@
   .liberacred-plan i{ color:#22C55E; margin-top:2px; font-size:13px; }
   .liberacred-plan strong{ color:var(--white); }
   .liberacred-plan span{ font-size:12.5px; color:var(--muted); line-height:1.5; }
-  .liberacred-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:8px;
-    margin-bottom:6px;
+  .liberacred-simulator{ margin-top:16px; }
+  .liberacred-step{ margin-bottom:16px; }
+  .liberacred-step-title{
+    display:flex; align-items:center; gap:8px; margin:0 0 8px;
+    color:var(--white); font-size:12.5px; font-weight:700;
   }
-  .liberacred-item{
+  .liberacred-step-title span{
+    width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:50%; background:#22C55E; color:#071B3F; font-size:11px;
+  }
+  .liberacred-select{
+    width:100%; background-color:rgba(255,255,255,0.06); border:1px solid var(--line);
+    border-radius:12px; padding:13px 40px 13px 13px; color:var(--white);
+    font-family:'Inter',sans-serif; font-size:14px; outline:none; cursor:pointer;
+    appearance:none; -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239FB0CC' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat; background-position:right 13px center; background-size:16px;
+  }
+  .liberacred-select:focus{ border-color:#22C55E; background-color:rgba(255,255,255,0.09); }
+  .liberacred-select option{ background:#0B1224; color:var(--white); }
+  .liberacred-bike-summary{
+    display:none; grid-template-columns:78px 1fr; gap:12px; align-items:center;
+    background:linear-gradient(135deg, rgba(47,111,224,0.14), rgba(34,197,94,0.08));
+    border:1px solid rgba(47,111,224,0.25); border-radius:14px; padding:10px;
+    margin-bottom:16px;
+  }
+  .liberacred-bike-summary.show{ display:grid; animation:itemIn .3s var(--ease) both; }
+  .liberacred-bike-summary img{
+    width:78px; height:78px; object-fit:contain; border-radius:10px;
     background:rgba(255,255,255,0.04);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:10px 12px;
   }
-  .liberacred-item .m{ font-size:12.5px; font-weight:700; color:var(--white); margin-bottom:3px; }
-  .liberacred-item .p{ font-size:11px; color:var(--muted); margin-bottom:2px; }
-  .liberacred-item .v{ font-size:14.5px; font-weight:700; color:#22C55E; }
-  .liberacred-item.launch{
-    grid-column:1 / -1;
-    display:flex; align-items:center; justify-content:space-between;
-    background:linear-gradient(90deg, rgba(34,197,94,0.14), rgba(228,0,43,0.10));
-    border-color:rgba(34,197,94,0.25);
+  .liberacred-bike-summary .name{ font-size:14px; font-weight:700; margin-bottom:4px; }
+  .liberacred-bike-summary .base{ font-size:11.5px; color:var(--muted); }
+  .liberacred-percentages{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .liberacred-percentage{
+    border:1px solid var(--line); border-radius:12px; padding:11px 6px;
+    background:rgba(255,255,255,0.04); color:var(--white); cursor:pointer;
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:700;
+    transition:all .2s var(--ease);
   }
+  .liberacred-percentage:hover{ border-color:rgba(34,197,94,.55); }
+  .liberacred-percentage.active{
+    color:#071B3F; background:#22C55E; border-color:#22C55E;
+    box-shadow:0 10px 24px -14px rgba(34,197,94,.9);
+  }
+  .liberacred-result{
+    display:none; background:rgba(255,255,255,0.04); border:1px solid var(--line);
+    border-radius:14px; padding:14px; margin-bottom:12px;
+  }
+  .liberacred-result.show{ display:block; animation:itemIn .3s var(--ease) both; }
+  .liberacred-accumulated{
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    padding-bottom:12px; margin-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .liberacred-accumulated span{ font-size:11.5px; color:var(--muted); }
+  .liberacred-accumulated strong{ font-size:15px; color:#22C55E; white-space:nowrap; }
+  .liberacred-installments{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .liberacred-installment{
+    background:rgba(47,111,224,0.12); border:1px solid rgba(47,111,224,0.22);
+    border-radius:11px; padding:10px; text-align:center;
+  }
+  .liberacred-installment .term{ color:var(--muted); font-size:11px; margin-bottom:3px; }
+  .liberacred-installment .amount{ color:var(--white); font-size:14px; font-weight:700; }
+  .liberacred-empty{ font-size:12px; color:var(--muted); text-align:center; padding:5px; }
+  #liberacredWhatsapp[aria-disabled="true"]{ opacity:.45; pointer-events:none; }
   .liberacred-note{
     font-size:11px; color:var(--muted); text-align:center; margin-top:12px; line-height:1.5;
   }
@@ -1233,37 +1279,50 @@
       </div>
     </div>
 
-    <div class="liberacred-badge" style="margin-bottom:10px;">Valores do plano 18x - a partir de:</div>
+    <div class="liberacred-simulator">
+      <div class="liberacred-step">
+        <div class="liberacred-step-title"><span>1</span> Escolha sua Yamaha</div>
+        <select class="liberacred-select" id="liberacredMoto" onchange="selectLiberacredMoto(this.value)">
+          <option value="">Selecione o modelo</option>
+        </select>
+      </div>
 
-    <div class="liberacred-grid">
-      <div class="liberacred-item"><div class="m">Fluo 125</div><div class="v">R$ 430,85</div></div>
-      <div class="liberacred-item"><div class="m">Aerox 160</div><div class="v">R$ 484,26</div></div>
-      <div class="liberacred-item"><div class="m">NMAX 160</div><div class="v">R$ 588,67</div></div>
-      <div class="liberacred-item"><div class="m">Factor ED</div><div class="v">R$ 472,12</div></div>
-      <div class="liberacred-item"><div class="m">Factor DX</div><div class="v">R$ 484,26</div></div>
-      <div class="liberacred-item"><div class="m">FZ-15</div><div class="v">R$ 537,68</div></div>
-      <div class="liberacred-item"><div class="m">FZ-25</div><div class="v">R$ 634,80</div></div>
-      <div class="liberacred-item"><div class="m">Crosser S</div><div class="v">R$ 576,53</div></div>
-      <div class="liberacred-item"><div class="m">Crosser Z</div><div class="v">R$ 581,38</div></div>
-      <div class="liberacred-item"><div class="m">Lander 250</div><div class="v">R$ 734,35</div></div>
-      <div class="liberacred-item"><div class="m">R15</div><div class="v">R$ 593,52</div></div>
-      <div class="liberacred-item"><div class="m">TTR 230</div><div class="v">R$ 513,40</div></div>
-      <div class="liberacred-item launch">
-        <div><div class="m">ZR 125 <span style="color:#22C55E;">· Lançamento</span></div><div class="v">R$ 362,86</div></div>
-        <i class="fa-solid fa-star" style="color:#22C55E;"></i>
+      <div class="liberacred-bike-summary" id="liberacredBikeSummary">
+        <img id="liberacredBikeImage" src="" alt="">
+        <div>
+          <div class="name" id="liberacredBikeName"></div>
+          <div class="base" id="liberacredBikeBase"></div>
+        </div>
+      </div>
+
+      <div class="liberacred-step" id="liberacredPercentageStep" hidden>
+        <div class="liberacred-step-title"><span>2</span> Escolha o valor da entrada</div>
+        <div class="liberacred-percentages" id="liberacredPercentages">
+          <button type="button" class="liberacred-percentage" data-percent="30" onclick="selectLiberacredPercentage(30)">30%</button>
+          <button type="button" class="liberacred-percentage" data-percent="40" onclick="selectLiberacredPercentage(40)">40%</button>
+          <button type="button" class="liberacred-percentage" data-percent="50" onclick="selectLiberacredPercentage(50)">50%</button>
+        </div>
+      </div>
+
+      <div class="liberacred-result" id="liberacredResult" aria-live="polite">
+        <div class="liberacred-accumulated">
+          <span>Valor acumulado da entrada</span>
+          <strong id="liberacredAccumulated"></strong>
+        </div>
+        <div class="liberacred-installments" id="liberacredInstallments"></div>
       </div>
     </div>
 
-    <a class="btn primary" style="margin-top:6px;" href="https://wa.me/5592991623048?text=Ol%C3%A1%2C%20Deryck!%20Tenho%20interesse%20no%20Liberacred%20(financiamento%20com%20entrada%20parcelada)." target="_blank" rel="noopener">
+    <a class="btn primary" id="liberacredWhatsapp" aria-disabled="true" style="margin-top:6px;" href="#" target="_blank" rel="noopener">
       <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
       <span class="txt">
-        <div class="t">Falar sobre o Liberacred</div>
-        <div class="d">Consultar condições pelo WhatsApp</div>
+        <div class="t">Quero esta condição</div>
+        <div class="d">Enviar a escolha pelo WhatsApp</div>
       </span>
       <i class="fa-solid fa-chevron-right chev"></i>
     </a>
 
-    <div class="liberacred-note">Valores referentes ao plano de 18x. Consulte condições atualizadas com Deryck Alec.</div>
+    <div class="liberacred-note">Os valores podem sofrer ajustes conforme a tabela do Liberacred. Confirme as condições atualizadas com Deryck Alec.</div>
   </div>
 </div>
 
@@ -1392,6 +1451,134 @@
 </div>
 
 <script>
+  const liberacredData = {
+    fluo: { name:'Fluo ABS Hybrid Connected', image:'Fluo.png', base:'R$ 19.812,20', plans:{
+      30:{accumulated:'R$ 5.943,66', installments:{12:'R$ 637,07',18:'R$ 430,85'}},
+      40:{accumulated:'R$ 7.924,88', installments:{12:'R$ 840,90',18:'R$ 566,73'}},
+      50:{accumulated:'R$ 9.906,10', installments:{12:'R$ 1.044,73',18:'R$ 702,62'}} }},
+    nmax: { name:'NMAX 160 ABS Connected', image:'Nmax.png', base:'R$ 27.482,20', plans:{
+      30:{accumulated:'R$ 8.244,66', installments:{12:'R$ 873,80',18:'R$ 588,67'}},
+      40:{accumulated:'R$ 10.992,88', installments:{8:'R$ 1.725,61',12:'R$ 1.156,64',18:'R$ 777,16'}},
+      50:{accumulated:'R$ 13.741,10', installments:{6:'R$ 2.860,16',12:'R$ 1.439,28',18:'R$ 966,65'}} }},
+    fz15: { name:'Fazer FZ15 ABS Connected', image:'FZ15.png', base:'R$ 25.004,20', plans:{
+      30:{accumulated:'R$ 7.501,26', installments:{12:'R$ 797,32',18:'R$ 537,68'}},
+      40:{accumulated:'R$ 10.001,68', installments:{8:'R$ 1.572,65',12:'R$ 1.054,57',18:'R$ 709,18'}},
+      50:{accumulated:'R$ 12.502,10', installments:{6:'R$ 2.605,23',12:'R$ 1.311,81',18:'R$ 880,67'}} }},
+    novafactor: { name:'Nova Factor', image:'Factor.png', base:'R$ 21.818,20', plans:{
+      30:{accumulated:'R$ 6.546,46', installments:{12:'R$ 698,99',18:'R$ 472,12'}},
+      40:{accumulated:'R$ 8.727,28', installments:{8:'R$ 1.375,98',12:'R$ 923,46',18:'R$ 621,77'}},
+      50:{accumulated:'R$ 10.909,10', installments:{6:'R$ 2.277,46',12:'R$ 1.147,92',18:'R$ 771,41'}} }},
+    factor150: { name:'Factor 150 DX Connected', image:'Factordx.png', base:'R$ 22.408,20', plans:{
+      30:{accumulated:'R$ 6.722,46', installments:{12:'R$ 717,20',18:'R$ 484,26'}},
+      40:{accumulated:'R$ 8.963,28', installments:{8:'R$ 1.412,40',12:'R$ 947,73',18:'R$ 637,95'}},
+      50:{accumulated:'R$ 11.204,10', installments:{6:'R$ 2.338,15',12:'R$ 1.178,27',18:'R$ 791,65'}} }},
+    fz25: { name:'Fazer FZ25 ABS Connected', image:'FZ25.png', base:'R$ 29.724,20', plans:{
+      30:{accumulated:'R$ 7.501,26', installments:{12:'R$ 943,00',18:'R$ 634,80'}},
+      40:{accumulated:'R$ 10.001,68', installments:{8:'R$ 1.864,01',12:'R$ 1.248,80',18:'R$ 838,67'}},
+      50:{accumulated:'R$ 12.502,10', installments:{6:'R$ 3.090,82',12:'R$ 1.554,61',18:'R$ 1.042,54'}} }},
+    crossers: { name:'Crosser S ABS', image:'Crossers.png', base:'R$ 26.892,20', plans:{
+      30:{accumulated:'R$ 8.067,66', installments:{12:'R$ 855,59',18:'R$ 576,53'}},
+      40:{accumulated:'R$ 10.756,88', installments:{8:'R$ 1.689,19',12:'R$ 1.132,26',18:'R$ 760,97'}},
+      50:{accumulated:'R$ 13.446,10', installments:{6:'R$ 2.799,47',12:'R$ 1.408,93',18:'R$ 945,42'}} }},
+    crosserz: { name:'Crosser Z ABS', image:'Crosserz.png', base:'R$ 27.128,20', plans:{
+      30:{accumulated:'R$ 8.138,46', installments:{12:'R$ 862,88',18:'R$ 581,38'}},
+      40:{accumulated:'R$ 10.851,28', installments:{8:'R$ 1.703,76',12:'R$ 1.141,97',18:'R$ 767,45'}},
+      50:{accumulated:'R$ 13.564,10', installments:{6:'R$ 2.823,74',12:'R$ 1.421,07',18:'R$ 953,51'}} }},
+    lander250: { name:'Lander 250 ABS Connected', image:'Lander.png', base:'R$ 34.562,20', plans:{
+      30:{accumulated:'R$ 10.368,66', installments:{12:'R$ 1.092,32',18:'R$ 734,35'}},
+      40:{accumulated:'R$ 13.824,88', installments:{8:'R$ 2.162,65',12:'R$ 1.447,90',18:'R$ 971,40'}},
+      50:{accumulated:'R$ 17.281,10', installments:{6:'R$ 3.588,56',12:'R$ 1.803,48',18:'R$ 1.208,45'}} }},
+    r15: { name:'YZF-R15 ABS Connected', image:'R15.png', base:'R$ 27.718,20', plans:{
+      30:{accumulated:'R$ 8.315,46', installments:{12:'R$ 881,09',18:'R$ 593,52'}},
+      40:{accumulated:'R$ 11.087,28', installments:{8:'R$ 1.740,18',12:'R$ 1.166,25',18:'R$ 783,63'}},
+      50:{accumulated:'R$ 13.859,10', installments:{6:'R$ 2.884,44',12:'R$ 1.451,42',18:'R$ 973,74'}} }},
+    ttr230: { name:'TT-R 230', image:'TTR230.png', base:'R$ 23.824,20', plans:{
+      30:{accumulated:'R$ 7.147,26', installments:{12:'R$ 760,90',18:'R$ 513,40'}},
+      40:{accumulated:'R$ 9.529,68', installments:{8:'R$ 1.499,81',12:'R$ 1.006,01',18:'R$ 676,80'}},
+      50:{accumulated:'R$ 11.912,10', installments:{6:'R$ 2.483,83',12:'R$ 1.251,11',18:'R$ 840,21'}} }},
+    aeroxabs: { name:'Aerox ABS Connected', image:'aeroxabs.jpeg', base:'R$ 22.408,20', plans:{
+      30:{accumulated:'R$ 6.722,46', installments:{12:'R$ 717,20',18:'R$ 484,26'}},
+      40:{accumulated:'R$ 8.963,28', installments:{8:'R$ 1.412,40',12:'R$ 947,73',18:'R$ 637,95'}},
+      50:{accumulated:'R$ 11.204,10', installments:{6:'R$ 2.338,15',12:'R$ 1.178,27',18:'R$ 791,65'}} }},
+    zrhybrid: { name:'ZR Hybrid Connected', image:'ZRhibrid.jpeg', base:'R$ 16.508,20', plans:{
+      30:{accumulated:'R$ 4.952,46', installments:{12:'R$ 536,10',18:'R$ 362,86'}},
+      40:{accumulated:'R$ 6.603,28', installments:{8:'R$ 1.048,21',12:'R$ 704,94',18:'R$ 476,09'}},
+      50:{accumulated:'R$ 8.254,10', installments:{6:'R$ 1.731,15',12:'R$ 874,77',18:'R$ 589,31'}} }}
+  };
+
+  let liberacredSelectedMoto = '';
+  let liberacredSelectedPercentage = null;
+
+  function initLiberacredSimulator() {
+    const select = document.getElementById('liberacredMoto');
+    Object.entries(liberacredData).forEach(([key, bike]) => {
+      const option = document.createElement('option');
+      option.value = key;
+      option.textContent = bike.name;
+      select.appendChild(option);
+    });
+  }
+
+  function selectLiberacredMoto(key) {
+    liberacredSelectedMoto = key;
+    liberacredSelectedPercentage = null;
+    const bike = liberacredData[key];
+    const summary = document.getElementById('liberacredBikeSummary');
+    const percentageStep = document.getElementById('liberacredPercentageStep');
+    document.querySelectorAll('.liberacred-percentage').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('liberacredResult').classList.remove('show');
+    updateLiberacredWhatsapp();
+
+    if (!bike) {
+      summary.classList.remove('show');
+      percentageStep.hidden = true;
+      return;
+    }
+
+    document.getElementById('liberacredBikeImage').src = bike.image;
+    document.getElementById('liberacredBikeImage').alt = bike.name;
+    document.getElementById('liberacredBikeName').textContent = bike.name;
+    document.getElementById('liberacredBikeBase').textContent = `Valor base do plano: ${bike.base}`;
+    summary.classList.add('show');
+    percentageStep.hidden = false;
+  }
+
+  function selectLiberacredPercentage(percentage) {
+    if (!liberacredSelectedMoto) return;
+    liberacredSelectedPercentage = percentage;
+    document.querySelectorAll('.liberacred-percentage').forEach(btn => {
+      btn.classList.toggle('active', Number(btn.dataset.percent) === percentage);
+    });
+
+    const plan = liberacredData[liberacredSelectedMoto].plans[percentage];
+    document.getElementById('liberacredAccumulated').textContent = plan.accumulated;
+    const installments = document.getElementById('liberacredInstallments');
+    installments.innerHTML = Object.entries(plan.installments).map(([term, amount]) =>
+      `<div class="liberacred-installment"><div class="term">Plano em ${term}x</div><div class="amount">${term}x de ${amount}</div></div>`
+    ).join('');
+    document.getElementById('liberacredResult').classList.add('show');
+    updateLiberacredWhatsapp();
+  }
+
+  function updateLiberacredWhatsapp() {
+    const button = document.getElementById('liberacredWhatsapp');
+    if (!liberacredSelectedMoto || !liberacredSelectedPercentage) {
+      button.href = '#';
+      button.setAttribute('aria-disabled', 'true');
+      return;
+    }
+    const bike = liberacredData[liberacredSelectedMoto];
+    const plan = bike.plans[liberacredSelectedPercentage];
+    const installmentText = Object.entries(plan.installments)
+      .map(([term, amount]) => `${term}x de ${amount}`)
+      .join(' | ');
+    const message = `Olá, Deryck! Tenho interesse no Liberacred.\n\nMoto: ${bike.name}\nEntrada escolhida: ${liberacredSelectedPercentage}% (${plan.accumulated})\nParcelas disponíveis: ${installmentText}\n\nGostaria de confirmar as condições atualizadas.`;
+    button.href = `https://wa.me/5592991623048?text=${encodeURIComponent(message)}`;
+    button.removeAttribute('aria-disabled');
+  }
+
+  initLiberacredSimulator();
+
   function changeMainImage(thumbElement) {
     const card = thumbElement.closest('.bike-card');
     const mainImg = card.querySelector('.bike-img-main');
@@ -1556,8 +1743,6 @@
   let lbIndex = 0;
 
   const lbOverlay = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightboxImg');
-  const lbCaption = document.getElementById('lightboxCaption');
   const lbDots = document.getElementById('lightboxDots');
 
   function openLightbox(clickedImg) {
