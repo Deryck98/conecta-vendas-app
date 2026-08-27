@@ -1679,6 +1679,11 @@
     const modal = document.getElementById('financeModal');
     modal.classList.remove('open');
     document.body.style.overflow = '';
+
+    // Cada nova simulação começa com todos os campos limpos.
+    const form = document.getElementById('simForm');
+    if (form) form.reset();
+    modal.querySelectorAll('.field.invalid').forEach(field => field.classList.remove('invalid'));
   }
 
   function openLiberacredModal() {
