@@ -383,7 +383,14 @@
   .liberacred-bike-summary img{
     width:78px; height:78px; object-fit:contain; border-radius:10px;
     background:rgba(255,255,255,0.04);
+    cursor:zoom-in;
+    transition:transform .2s var(--ease), border-color .2s var(--ease);
+    border:1px solid transparent;
   }
+  .liberacred-bike-summary img:hover{
+    transform:scale(1.04); border-color:rgba(34,197,94,.55);
+  }
+  .liberacred-bike-summary img:active{ transform:scale(.98); }
   .liberacred-bike-summary .name{ font-size:14px; font-weight:700; margin-bottom:4px; }
   .liberacred-bike-summary .base{ font-size:11.5px; color:var(--muted); }
   .liberacred-percentages{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
@@ -1288,7 +1295,7 @@
       </div>
 
       <div class="liberacred-bike-summary" id="liberacredBikeSummary">
-        <img id="liberacredBikeImage" src="" alt="">
+        <img id="liberacredBikeImage" src="" alt="" onclick="openLiberacredImage(this)" title="Clique para ampliar" tabindex="0" role="button" aria-label="Ampliar foto da moto">
         <div>
           <div class="name" id="liberacredBikeName"></div>
           <div class="base" id="liberacredBikeBase"></div>
@@ -1767,9 +1774,26 @@
     document.body.style.overflow = 'hidden';
   }
 
+  function openLiberacredImage(clickedImg) {
+    if (!clickedImg.src) return;
+    lbImages = [{ src: clickedImg.src, alt: clickedImg.alt }];
+    lbIndex = 0;
+    renderLightboxDots();
+    showLightboxImage(0, false);
+    lbOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.getElementById('liberacredBikeImage').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLiberacredImage(this);
+    }
+  });
+
   function closeLightbox() {
     lbOverlay.classList.remove('open');
-    document.body.style.overflow = '';
+    document.body.style.overflow = document.querySelector('.modal-overlay.open') ? 'hidden' : '';
   }
 
   function renderLightboxDots() {
