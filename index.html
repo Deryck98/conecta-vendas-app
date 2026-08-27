@@ -750,6 +750,18 @@
   .seo-intro{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.65;text-align:center}
   .bike-details-link{display:block;margin:0 0 12px;text-align:center;color:#8bb7ff;font-size:12px;font-weight:700;text-decoration:none}
   .bike-details-link:hover{text-decoration:underline;color:#fff}
+  .btn.referral .icon{background:rgba(250,204,21,.16);color:#facc15}
+  .referral-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.3);color:#fde047;font-size:12px;font-weight:800}
+  .referral-highlight{margin:15px 0 4px;padding:16px;border-radius:15px;background:linear-gradient(135deg,rgba(250,204,21,.16),rgba(34,197,94,.1));border:1px solid rgba(250,204,21,.26);text-align:center}
+  .referral-highlight strong{display:block;color:#fde047;font-size:24px;font-family:'Space Grotesk',sans-serif}
+  .referral-highlight span{color:var(--muted);font-size:12px}
+  .referral-steps{display:grid;gap:10px;margin:16px 0}
+  .referral-step{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:start;padding:12px;border-radius:13px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09)}
+  .referral-step b{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(47,111,224,.2);color:#8bb7ff}
+  .referral-step strong{display:block;color:var(--white);font-size:13px;margin-bottom:2px}
+  .referral-step span{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+  .referral-rules{padding:12px;border-radius:12px;background:rgba(255,255,255,.035);color:var(--muted);font-size:11.5px;line-height:1.55}
+  .referral-cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;width:100%;padding:14px;border-radius:12px;background:#22c55e;color:#04150a;text-decoration:none;font-size:13px;font-weight:800}
   .whatsapp-float{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:900;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#22c55e;color:#06150b;font-size:27px;text-decoration:none;box-shadow:0 12px 32px rgba(0,0,0,.42);transition:transform .2s ease,filter .2s ease}
   .whatsapp-float:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.06)}
   .whatsapp-float:focus-visible{outline:3px solid #fff;outline-offset:3px}
@@ -832,6 +844,12 @@
       <i class="fa-solid fa-chevron-right chev"></i>
     </button>
 
+  
+    <button type="button" class="btn referral" style="animation-delay:.50s" onclick="openReferralModal()">
+      <span class="icon"><i class="fa-solid fa-gift"></i></span>
+      <span class="txt"><div class="t">Indique e ganhe R$ 100</div><div class="d">Receba quando a compra indicada for concluída</div></span>
+      <i class="fa-solid fa-chevron-right chev"></i>
+    </button>
   </nav>
 
   <!-- CATÁLOGO DE MOTOS COMPLETO (17 MODELOS) -->
@@ -1369,6 +1387,21 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="referralTitle">
+  <div class="modal">
+    <div class="modal-head"><div><h2 id="referralTitle">Indique e Ganhe</h2><p>Conhece alguém querendo uma Yamaha 0KM? Sua indicação pode valer R$ 100.</p></div><button type="button" class="modal-close" onclick="closeReferralModal()" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="referral-badge"><i class="fa-solid fa-gift"></i> Programa de indicação</div>
+    <div class="referral-highlight"><strong>R$ 100</strong><span>para você quando a compra do indicado for concluída</span></div>
+    <div class="referral-steps">
+      <div class="referral-step"><b>1</b><div><strong>Envie sua indicação</strong><span>Informe pelo WhatsApp o seu nome e o nome da pessoa interessada.</span></div></div>
+      <div class="referral-step"><b>2</b><div><strong>Eu faço o atendimento</strong><span>Apresento os modelos e acompanho a simulação e a negociação.</span></div></div>
+      <div class="referral-step"><b>3</b><div><strong>Compra concluída, você recebe</strong><span>Depois da confirmação da venda, você recebe a recompensa de R$ 100.</span></div></div>
+    </div>
+    <div class="referral-rules"><strong>Importante:</strong> envie a indicação antes de a pessoa iniciar o atendimento. Confirme também que ela autorizou o compartilhamento do contato. A recompensa é paga ao indicador após a confirmação da compra.</div>
+    <a class="referral-cta" href="https://wa.me/5592991623048?text=Ol%C3%A1%2C%20Deryck!%20Quero%20fazer%20uma%20indica%C3%A7%C3%A3o.%0A%0AMeu%20nome%3A%20%0ANome%20da%20pessoa%20indicada%3A%20%0ATelefone%20da%20pessoa%20indicada%3A%20%0AModelo%20de%20interesse%20(se%20souber)%3A%20%0A%0AConfirmo%20que%20a%20pessoa%20autorizou%20o%20contato." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Enviar uma indicação</a>
+  </div>
+</div>
+
 <div class="modal-overlay" id="financeModal">
   <div class="modal">
     <div class="modal-head">
@@ -1677,6 +1710,22 @@
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
+  function openReferralModal() {
+    const modal = document.getElementById('referralModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeReferralModal() {
+    const modal = document.getElementById('referralModal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('referralModal').addEventListener('click', function(e) {
+    if (e.target === this) closeReferralModal();
+  });
 
   function closeFinanceModal() {
     const modal = document.getElementById('financeModal');
