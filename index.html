@@ -1637,6 +1637,16 @@
 
   initLiberacredSimulator();
 
+  // Abre o LiberaCred vindo da página de uma moto e já deixa o modelo selecionado.
+  const liberacredFromUrl = new URLSearchParams(window.location.search).get('liberacred');
+  if (liberacredFromUrl && liberacredData[liberacredFromUrl]) {
+    const select = document.getElementById('liberacredMoto');
+    select.value = liberacredFromUrl;
+    selectLiberacredMoto(liberacredFromUrl);
+    openLiberacredModal();
+    history.replaceState({}, '', window.location.pathname + '#liberacred');
+  }
+
   function changeMainImage(thumbElement) {
     const card = thumbElement.closest('.bike-card');
     const mainImg = card.querySelector('.bike-img-main');
